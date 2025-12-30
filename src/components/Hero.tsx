@@ -14,7 +14,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-16">
+    <section className="relative flex items-center justify-center overflow-hidden pt-24 pb-8">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-card" />
 
@@ -35,29 +35,12 @@ const Hero = () => {
       </AnimatePresence>
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Tagline */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-medium mb-4">
-            <span className={cn("transition-all duration-700", isOn && "glow-text gradient-text")}>
-              {t.hero.tagline}
-            </span>
-          </h1>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
-            {t.hero.subtitle}
-          </p>
-        </motion.div>
-
         {/* Status Indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="flex justify-center items-center gap-4 mb-8"
+          className="flex justify-center items-center gap-4 mb-6"
         >
           <span
             className={cn(
@@ -85,7 +68,7 @@ const Hero = () => {
 
         {/* Product Collage - Desktop (Grid) */}
         <div className="hidden md:block relative">
-          <div className="grid grid-cols-5 gap-4 max-w-6xl mx-auto">
+          <div className="grid grid-cols-5 gap-4 max-w-7xl mx-auto">
             {products.map((product, index) => (
               <motion.div
                 key={product.id}
@@ -96,7 +79,7 @@ const Hero = () => {
               >
                 <div
                   className={cn(
-                    "relative aspect-[3/4] rounded-lg overflow-hidden transition-all duration-500",
+                    "relative aspect-[2/3] rounded-lg overflow-hidden transition-all duration-500",
                     isOn && "glow-border animate-glow-pulse"
                   )}
                 >
@@ -170,7 +153,7 @@ const Hero = () => {
 
         {/* Product Collage - Mobile (Vertical Stack / Burger Style) */}
         <div className="md:hidden relative">
-          <div className="flex flex-col gap-4 max-w-sm mx-auto">
+          <div className="flex flex-col gap-3 max-w-sm mx-auto pr-16">
             {products.map((product, index) => (
               <motion.div
                 key={product.id}
@@ -181,7 +164,7 @@ const Hero = () => {
               >
                 <div
                   className={cn(
-                    "relative aspect-video rounded-lg overflow-hidden transition-all duration-500",
+                    "relative aspect-[16/10] rounded-lg overflow-hidden transition-all duration-500",
                     isOn && "glow-border"
                   )}
                 >
@@ -216,11 +199,12 @@ const Hero = () => {
             ))}
           </div>
 
-          {/* Toggle Arrows - Mobile */}
-          <div className="flex justify-center gap-4 mt-6">
-            <AnimatePresence>
-              {isOn && (
+          {/* Toggle Arrow - Mobile (Right Center) */}
+          <div className="absolute top-1/2 -translate-y-1/2 right-2">
+            <AnimatePresence mode="wait">
+              {isOn ? (
                 <motion.button
+                  key="left"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
@@ -229,12 +213,9 @@ const Hero = () => {
                 >
                   <ChevronLeft className="text-foreground" />
                 </motion.button>
-              )}
-            </AnimatePresence>
-
-            <AnimatePresence>
-              {!isOn && (
+              ) : (
                 <motion.button
+                  key="right"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
