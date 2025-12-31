@@ -126,12 +126,20 @@ const ProductDetailPage = () => {
             {/* Specs */}
             <div className="grid grid-cols-2 gap-4">
               <div className="card-premium p-4">
-                <p className="text-xs text-muted-foreground mb-1">Material</p>
-                <p className="font-medium">{product.material}</p>
+                <p className="text-xs text-muted-foreground mb-1">Size</p>
+                <p className="font-medium">{product.size}</p>
               </div>
               <div className="card-premium p-4">
-                <p className="text-xs text-muted-foreground mb-1">Dimensi</p>
-                <p className="font-medium">{product.dimensions}</p>
+                <p className="text-xs text-muted-foreground mb-1">Thickness</p>
+                <p className="font-medium">{product.thickness}</p>
+              </div>
+              <div className="card-premium p-4">
+                <p className="text-xs text-muted-foreground mb-1">Weight</p>
+                <p className="font-medium">{product.weight}</p>
+              </div>
+              <div className="card-premium p-4">
+                <p className="text-xs text-muted-foreground mb-1">Material</p>
+                <p className="font-medium">{product.material}</p>
               </div>
             </div>
 
