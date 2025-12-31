@@ -36,6 +36,14 @@ interface Translations {
     send: string;
     success: string;
   };
+  footer: {
+    socialMedia: string;
+    productInfo: string;
+    catalog: string;
+    orderCatalog: string;
+    location: string;
+    contactUs: string;
+  };
 }
 
 const translations: Record<Language, Translations> = {
@@ -73,6 +81,14 @@ const translations: Record<Language, Translations> = {
       send: "Kirim Pesan",
       success: "Pesan berhasil dikirim!",
     },
+    footer: {
+      socialMedia: "Media Sosial",
+      productInfo: "Info Produk",
+      catalog: "Katalog",
+      orderCatalog: "Pesan Katalog",
+      location: "Lokasi",
+      contactUs: "Hubungi Kami",
+    },
   },
   en: {
     nav: {
@@ -107,6 +123,14 @@ const translations: Record<Language, Translations> = {
       message: "Your Message",
       send: "Send Message",
       success: "Message sent successfully!",
+    },
+    footer: {
+      socialMedia: "Social Media",
+      productInfo: "Product Info",
+      catalog: "Catalog",
+      orderCatalog: "Order Catalog",
+      location: "Location",
+      contactUs: "Contact Us",
     },
   },
 };

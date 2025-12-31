@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { products } from "@/data/products";
@@ -14,7 +15,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative flex items-center justify-center overflow-hidden pt-24 pb-8">
+    <section className="relative flex flex-col items-center justify-center overflow-hidden pt-24 pb-8">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-card" />
 
@@ -35,37 +36,6 @@ const Hero = () => {
       </AnimatePresence>
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Status Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="flex justify-center items-center gap-4 mb-6"
-        >
-          <span
-            className={cn(
-              "text-sm uppercase tracking-widest transition-colors",
-              !isOn ? "text-primary" : "text-muted-foreground"
-            )}
-          >
-            {t.hero.off}
-          </span>
-          <div
-            className={cn(
-              "w-12 h-1 rounded-full transition-colors",
-              isOn ? "bg-primary" : "bg-muted"
-            )}
-          />
-          <span
-            className={cn(
-              "text-sm uppercase tracking-widest transition-colors",
-              isOn ? "text-primary" : "text-muted-foreground"
-            )}
-          >
-            {t.hero.on}
-          </span>
-        </motion.div>
-
         {/* Product Collage - Desktop (Grid) */}
         <div className="hidden md:block relative">
           <div className="grid grid-cols-5 gap-4 max-w-7xl mx-auto">
@@ -77,44 +47,46 @@ const Hero = () => {
                 transition={{ delay: 0.2 + index * 0.1 }}
                 className="relative group"
               >
-                <div
-                  className={cn(
-                    "relative aspect-[2/3] rounded-lg overflow-hidden transition-all duration-500",
-                    isOn && "glow-border animate-glow-pulse"
-                  )}
-                >
-                  {/* OFF Image */}
-                  <img
-                    src={product.imageOff}
-                    alt={`${product.name} OFF`}
+                <Link to={`/produk/${product.id}`}>
+                  <div
                     className={cn(
-                      "absolute inset-0 w-full h-full object-cover transition-opacity duration-700",
-                      isOn ? "opacity-0" : "opacity-100"
+                      "relative aspect-[1/2] rounded-lg overflow-hidden transition-all duration-500 cursor-pointer hover:scale-[1.02]",
+                      isOn && "glow-border animate-glow-pulse"
                     )}
-                  />
-                  {/* ON Image */}
-                  <img
-                    src={product.imageOn}
-                    alt={`${product.name} ON`}
-                    className={cn(
-                      "absolute inset-0 w-full h-full object-cover transition-opacity duration-700",
-                      isOn ? "opacity-100" : "opacity-0"
-                    )}
-                  />
-
-                  {/* Product Info Overlay */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 + index * 0.1 }}
-                    className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-background/90 to-transparent"
                   >
-                    <p className="text-xs text-primary font-medium">{product.code}</p>
-                    <h3 className="text-sm font-display font-medium text-foreground">
-                      {product.name}
-                    </h3>
-                  </motion.div>
-                </div>
+                    {/* OFF Image */}
+                    <img
+                      src={product.imageOff}
+                      alt={`${product.name} OFF`}
+                      className={cn(
+                        "absolute inset-0 w-full h-full object-cover transition-opacity duration-700",
+                        isOn ? "opacity-0" : "opacity-100"
+                      )}
+                    />
+                    {/* ON Image */}
+                    <img
+                      src={product.imageOn}
+                      alt={`${product.name} ON`}
+                      className={cn(
+                        "absolute inset-0 w-full h-full object-cover transition-opacity duration-700",
+                        isOn ? "opacity-100" : "opacity-0"
+                      )}
+                    />
+
+                    {/* Product Info Overlay */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.5 + index * 0.1 }}
+                      className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-background/90 to-transparent"
+                    >
+                      <p className="text-xs text-primary font-medium">{product.code}</p>
+                      <h3 className="text-sm font-display font-medium text-foreground">
+                        {product.name}
+                      </h3>
+                    </motion.div>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -162,39 +134,41 @@ const Hero = () => {
                 transition={{ delay: 0.2 + index * 0.1 }}
                 className="relative"
               >
-                <div
-                  className={cn(
-                    "relative aspect-[16/10] rounded-lg overflow-hidden transition-all duration-500",
-                    isOn && "glow-border"
-                  )}
-                >
-                  {/* OFF Image */}
-                  <img
-                    src={product.imageOff}
-                    alt={`${product.name} OFF`}
+                <Link to={`/produk/${product.id}`}>
+                  <div
                     className={cn(
-                      "absolute inset-0 w-full h-full object-cover transition-opacity duration-700",
-                      isOn ? "opacity-0" : "opacity-100"
+                      "relative aspect-[16/12] rounded-lg overflow-hidden transition-all duration-500 cursor-pointer hover:scale-[1.02]",
+                      isOn && "glow-border"
                     )}
-                  />
-                  {/* ON Image */}
-                  <img
-                    src={product.imageOn}
-                    alt={`${product.name} ON`}
-                    className={cn(
-                      "absolute inset-0 w-full h-full object-cover transition-opacity duration-700",
-                      isOn ? "opacity-100" : "opacity-0"
-                    )}
-                  />
+                  >
+                    {/* OFF Image */}
+                    <img
+                      src={product.imageOff}
+                      alt={`${product.name} OFF`}
+                      className={cn(
+                        "absolute inset-0 w-full h-full object-cover transition-opacity duration-700",
+                        isOn ? "opacity-0" : "opacity-100"
+                      )}
+                    />
+                    {/* ON Image */}
+                    <img
+                      src={product.imageOn}
+                      alt={`${product.name} ON`}
+                      className={cn(
+                        "absolute inset-0 w-full h-full object-cover transition-opacity duration-700",
+                        isOn ? "opacity-100" : "opacity-0"
+                      )}
+                    />
 
-                  {/* Product Info Overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-background/90 to-transparent">
-                    <p className="text-xs text-primary font-medium">{product.code}</p>
-                    <h3 className="text-sm font-display font-medium text-foreground">
-                      {product.name}
-                    </h3>
+                    {/* Product Info Overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-background/90 to-transparent">
+                      <p className="text-xs text-primary font-medium">{product.code}</p>
+                      <h3 className="text-sm font-display font-medium text-foreground">
+                        {product.name}
+                      </h3>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -228,6 +202,37 @@ const Hero = () => {
             </AnimatePresence>
           </div>
         </div>
+
+        {/* OFF/ON Status Indicator - Below Hero */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="flex justify-center items-center gap-4 mt-8"
+        >
+          <span
+            className={cn(
+              "text-sm uppercase tracking-widest transition-colors",
+              !isOn ? "text-primary" : "text-muted-foreground"
+            )}
+          >
+            {t.hero.off}
+          </span>
+          <div
+            className={cn(
+              "w-12 h-1 rounded-full transition-colors",
+              isOn ? "bg-primary" : "bg-muted"
+            )}
+          />
+          <span
+            className={cn(
+              "text-sm uppercase tracking-widest transition-colors",
+              isOn ? "text-primary" : "text-muted-foreground"
+            )}
+          >
+            {t.hero.on}
+          </span>
+        </motion.div>
       </div>
     </section>
   );
