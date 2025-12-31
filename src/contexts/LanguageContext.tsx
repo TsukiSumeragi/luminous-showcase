@@ -26,6 +26,37 @@ interface Translations {
     otherProducts: string;
     otherArticles: string;
     sendMessage: string;
+    back: string;
+    backToProducts: string;
+    backToArticles: string;
+    features: string;
+    size: string;
+    thickness: string;
+    weight: string;
+    material: string;
+    tags: string;
+    sending: string;
+    orContactVia: string;
+    weWillContactYou: string;
+    writeYourMessage: string;
+  };
+  products: {
+    title: string;
+    subtitle: string;
+    notFound: string;
+  };
+  articles: {
+    title: string;
+    subtitle: string;
+    notFound: string;
+  };
+  applications: {
+    title: string;
+    subtitle: string;
+    residentialDesc: string;
+    commercialDesc: string;
+    residentialSubtitle: string;
+    commercialSubtitle: string;
   };
   contact: {
     title: string;
@@ -71,6 +102,37 @@ const translations: Record<Language, Translations> = {
       otherProducts: "Opsi Produk Lain",
       otherArticles: "Opsi Artikel Lain",
       sendMessage: "Kirim Pesan",
+      back: "Kembali",
+      backToProducts: "Kembali ke Produk",
+      backToArticles: "Kembali ke Artikel",
+      features: "Fitur",
+      size: "Ukuran",
+      thickness: "Ketebalan",
+      weight: "Berat",
+      material: "Material",
+      tags: "Tag",
+      sending: "Mengirim...",
+      orContactVia: "Atau hubungi langsung via WhatsApp:",
+      weWillContactYou: "Kami akan segera menghubungi Anda.",
+      writeYourMessage: "Tuliskan pesan Anda...",
+    },
+    products: {
+      title: "Produk",
+      subtitle: "Koleksi panel batu luminous premium kami yang menggabungkan keindahan alam dengan teknologi pencahayaan modern",
+      notFound: "Produk tidak ditemukan",
+    },
+    articles: {
+      title: "Artikel",
+      subtitle: "Temukan inspirasi, panduan, dan tips seputar batu luminous",
+      notFound: "Artikel tidak ditemukan",
+    },
+    applications: {
+      title: "Pengaplikasian",
+      subtitle: "Inspirasi pengaplikasian batu luminous dalam berbagai setting interior",
+      residentialDesc: "Ruang tamu, kamar mandi, dan area pribadi",
+      commercialDesc: "Hotel, restoran, dan ruang bisnis",
+      residentialSubtitle: "Transformasi ruang pribadi Anda dengan keindahan batu luminous",
+      commercialSubtitle: "Tingkatkan kesan premium ruang bisnis dengan panel batu backlit",
     },
     contact: {
       title: "Hubungi Kami",
@@ -114,6 +176,37 @@ const translations: Record<Language, Translations> = {
       otherProducts: "Other Products",
       otherArticles: "Other Articles",
       sendMessage: "Send Message",
+      back: "Back",
+      backToProducts: "Back to Products",
+      backToArticles: "Back to Articles",
+      features: "Features",
+      size: "Size",
+      thickness: "Thickness",
+      weight: "Weight",
+      material: "Material",
+      tags: "Tags",
+      sending: "Sending...",
+      orContactVia: "Or contact us directly via WhatsApp:",
+      weWillContactYou: "We will contact you shortly.",
+      writeYourMessage: "Write your message...",
+    },
+    products: {
+      title: "Products",
+      subtitle: "Our premium luminous stone panel collection combining natural beauty with modern lighting technology",
+      notFound: "Product not found",
+    },
+    articles: {
+      title: "Articles",
+      subtitle: "Discover inspiration, guides, and tips about luminous stone",
+      notFound: "Article not found",
+    },
+    applications: {
+      title: "Applications",
+      subtitle: "Luminous stone application inspiration in various interior settings",
+      residentialDesc: "Living rooms, bathrooms, and private areas",
+      commercialDesc: "Hotels, restaurants, and business spaces",
+      residentialSubtitle: "Transform your private space with the beauty of luminous stone",
+      commercialSubtitle: "Elevate your business space with premium backlit stone panels",
     },
     contact: {
       title: "Contact Us",
