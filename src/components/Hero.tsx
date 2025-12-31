@@ -47,7 +47,7 @@ const Hero = () => {
                 transition={{ delay: 0.2 + index * 0.1 }}
                 className="relative group"
               >
-                <Link to={`/produk/${product.id}`}>
+                <Link to={`/produk/${product.code}`}>
                   <div
                     className={cn(
                       "relative aspect-[1/2] rounded-lg overflow-hidden transition-all duration-500 cursor-pointer hover:scale-[1.02]",
@@ -134,7 +134,7 @@ const Hero = () => {
                 transition={{ delay: 0.2 + index * 0.1 }}
                 className="relative"
               >
-                <Link to={`/produk/${product.id}`}>
+                <Link to={`/produk/${product.code}`}>
                   <div
                     className={cn(
                       "relative aspect-[16/12] rounded-lg overflow-hidden transition-all duration-500 cursor-pointer hover:scale-[1.02]",
