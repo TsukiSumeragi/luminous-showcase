@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#1a1a1a] text-foreground">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           
           {/* Kolom 1: Media Sosial */}
           <div>
@@ -88,25 +88,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Kolom 3: Katalog */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4 text-primary">{t.footer.catalog}</h3>
-            <ul className="space-y-3">
-              <li>
-                <a 
-                  href="https://api.whatsapp.com/send/?phone=6289666150888&text=Halo,%20saya%20ingin%20memesan%20katalog%20Luminous%20Stone" 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  className="flex items-center gap-2 hover:translate-x-1 transition-transform text-muted-foreground hover:text-foreground"
-                >
-                  <FileText size={18} />
-                  {t.footer.orderCatalog}
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Kolom 4: Lokasi & Maps */}
+          {/* Kolom 3: Lokasi & Maps */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-primary">{t.footer.location}</h3>
             <div className="space-y-4">

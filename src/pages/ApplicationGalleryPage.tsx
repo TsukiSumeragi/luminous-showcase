@@ -1,13 +1,13 @@
 import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
-import { getResidentialGallery, getCommercialGallery, GalleryItem } from "@/data/gallery";
+import { getResidentialGallery, getCommercialGallery } from "@/data/gallery";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 
 const ApplicationGalleryPage = () => {
   const { category } = useParams<{ category: string }>();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const isResidential = category === "residensial";
   const items = isResidential ? getResidentialGallery() : getCommercialGallery();
@@ -27,7 +27,7 @@ const ApplicationGalleryPage = () => {
             className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
           >
             <ArrowLeft size={18} />
-            <span>Kembali</span>
+            <span>{t.common.back}</span>
           </Link>
         </motion.div>
 
@@ -41,35 +41,35 @@ const ApplicationGalleryPage = () => {
           </h1>
           <p className="text-muted-foreground max-w-xl mx-auto">
             {isResidential
-              ? "Transformasi ruang pribadi Anda dengan keindahan batu luminous"
-              : "Tingkatkan kesan premium ruang bisnis dengan panel batu backlit"}
+              ? t.applications.residentialSubtitle
+              : t.applications.commercialSubtitle}
           </p>
         </motion.div>
 
         {/* Gallery Grid */}
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {items.map((item, index) => (
             <motion.div
               key={item.id}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.05 }}
               className="group"
             >
               <div className="card-premium overflow-hidden">
-                <div className="relative aspect-video image-hover">
+                <div className="relative aspect-[4/3] image-hover">
                   <img
                     src={item.image}
-                    alt={item.title}
+                    alt={language === "id" ? item.title : item.titleEn}
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="p-5">
-                  <h3 className="font-display text-xl font-medium mb-2">
-                    {item.title}
+                  <h3 className="font-display text-lg font-medium mb-2">
+                    {language === "id" ? item.title : item.titleEn}
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    {item.description}
+                    {language === "id" ? item.description : item.descriptionEn}
                   </p>
                 </div>
               </div>
