@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { cn } from "@/lib/utils";
@@ -9,7 +9,6 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(null);
   const { language, setLanguage, t } = useLanguage();
   const location = useLocation();
 
@@ -24,7 +23,6 @@ const Navbar = () => {
   useEffect(() => {
     setIsOpen(false);
     setIsDropdownOpen(false);
-    setMobileDropdownOpen(null);
   }, [location]);
 
   // Lock body scroll when mobile menu is open
@@ -54,11 +52,10 @@ const Navbar = () => {
     { label: t.nav.contact, path: "/kontak" },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  // Mobile should only show "Menu Utama" (top-level pages)
+  const mobileNavItems = navItems.map(({ label, path }) => ({ label, path }));
 
-  const toggleMobileDropdown = (path: string) => {
-    setMobileDropdownOpen(mobileDropdownOpen === path ? null : path);
-  };
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <header
@@ -189,12 +186,12 @@ const Navbar = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-foreground p-2 touch-manipulation"
-              aria-label="Toggle menu"
+              aria-label={language === "id" ? "Buka menu" : "Open menu"}
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
 
-            {/* Mobile Logo - Larger */}
+            {/* Mobile Logo */}
             <Link to="/">
               <img src="/logo.webp" alt="Luminous Stone" className="h-14 w-auto" />
             </Link>
@@ -230,79 +227,48 @@ const Navbar = () => {
           <AnimatePresence>
             {isOpen && (
               <motion.div
-                initial={{ opacity: 0, x: "-100%" }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: "-100%" }}
-                transition={{ type: "tween", duration: 0.3 }}
-                className="fixed inset-0 top-[72px] bg-background z-40"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="fixed inset-0 bg-background z-[60]"
               >
-                <div className="flex flex-col h-full overflow-y-auto pb-20">
-                  {navItems.map((item, index) => (
+                {/* Overlay Header */}
+                <div className="flex items-center justify-between px-6 py-5 border-b border-border bg-background/80 backdrop-blur-md">
+                  <p className="font-display text-2xl font-medium">
+                    {language === "id" ? "Menu Utama" : "Main Menu"}
+                  </p>
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors"
+                    aria-label={language === "id" ? "Tutup menu" : "Close menu"}
+                  >
+                    <X size={22} />
+                  </button>
+                </div>
+
+                {/* Items */}
+                <div className="h-[calc(100dvh-84px)] overflow-y-auto">
+                  {mobileNavItems.map((item, index) => (
                     <motion.div
                       key={item.path}
-                      initial={{ opacity: 0, x: -20 }}
+                      initial={{ opacity: 0, x: -16 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 }}
+                      transition={{ delay: index * 0.03 }}
                       className="border-b border-border"
                     >
-                      {item.dropdown ? (
-                        <>
-                          <button
-                            onClick={() => toggleMobileDropdown(item.path)}
-                            className={cn(
-                              "flex items-center justify-between w-full px-6 py-5 text-lg font-medium transition-colors touch-manipulation",
-                              isActive(item.path) ? "text-primary" : "text-foreground active:bg-muted"
-                            )}
-                          >
-                            {item.label}
-                            <ChevronRight
-                              size={20}
-                              className={cn(
-                                "transition-transform text-muted-foreground",
-                                mobileDropdownOpen === item.path && "rotate-90"
-                              )}
-                            />
-                          </button>
-                          <AnimatePresence>
-                            {mobileDropdownOpen === item.path && (
-                              <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: "auto" }}
-                                exit={{ opacity: 0, height: 0 }}
-                                className="bg-muted/50 overflow-hidden"
-                              >
-                                {item.dropdown.map((subItem) => (
-                                  <Link
-                                    key={subItem.path}
-                                    to={subItem.path}
-                                    className={cn(
-                                      "flex items-center gap-3 px-8 py-4 text-base transition-colors touch-manipulation",
-                                      isActive(subItem.path)
-                                        ? "text-primary bg-muted"
-                                        : "text-foreground/70 active:bg-muted"
-                                    )}
-                                  >
-                                    <span className="w-1.5 h-1.5 rounded-full bg-primary/50" />
-                                    {subItem.label}
-                                  </Link>
-                                ))}
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </>
-                      ) : (
-                        <Link
-                          to={item.path}
-                          className={cn(
-                            "block px-6 py-5 text-lg font-medium transition-colors touch-manipulation",
-                            isActive(item.path)
-                              ? "text-primary bg-muted/50"
-                              : "text-foreground active:bg-muted"
-                          )}
-                        >
-                          {item.label}
-                        </Link>
-                      )}
+                      <Link
+                        to={item.path}
+                        onClick={() => setIsOpen(false)}
+                        className={cn(
+                          "block px-6 py-5 text-lg font-medium transition-colors touch-manipulation",
+                          isActive(item.path)
+                            ? "text-primary bg-muted/40"
+                            : "text-foreground active:bg-muted"
+                        )}
+                      >
+                        {item.label}
+                      </Link>
                     </motion.div>
                   ))}
                 </div>
