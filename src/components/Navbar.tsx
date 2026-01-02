@@ -53,7 +53,12 @@ const Navbar = () => {
   ];
 
   // Mobile should only show "Menu Utama" (top-level pages)
-  const mobileNavItems = navItems.map(({ label, path }) => ({ label, path }));
+  const mobileNavItems = [
+    { label: t.nav.home, path: "/" },
+    ...navItems
+      .filter((item) => item.path !== "/")
+      .map(({ label, path }) => ({ label, path })),
+  ];
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -228,32 +233,33 @@ const Navbar = () => {
             {isOpen && (
               <>
                 {/* Dimmed backdrop - click to close */}
-                <motion.div
+                <motion.button
+                  type="button"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.2 }}
-                  className="fixed inset-0 bg-black/60 z-[60]"
+                  className="fixed inset-0 z-[60] cursor-pointer border-0 p-0 bg-[hsl(var(--drawer-background)/0.6)]"
                   onClick={() => setIsOpen(false)}
                   aria-label={language === "id" ? "Tutup menu" : "Close menu"}
                 />
-                
+
                 {/* Slide-out menu panel */}
                 <motion.div
                   initial={{ x: "-100%" }}
                   animate={{ x: 0 }}
                   exit={{ x: "-100%" }}
                   transition={{ type: "tween", duration: 0.3 }}
-                  className="fixed inset-y-0 left-0 w-4/5 max-w-sm bg-black z-[70]"
+                  className="fixed inset-y-0 left-0 z-[70] w-4/5 max-w-sm bg-[hsl(var(--drawer-background))]"
                 >
                   {/* Overlay Header */}
-                  <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
-                    <p className="font-display text-2xl font-medium text-white">
+                  <div className="flex items-center justify-between px-6 py-5 border-b border-[hsl(var(--drawer-foreground)/0.12)]">
+                    <p className="font-display text-2xl font-medium text-[hsl(var(--drawer-foreground))]">
                       {language === "id" ? "Menu Utama" : "Main Menu"}
                     </p>
                     <button
                       onClick={() => setIsOpen(false)}
-                      className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors text-white"
+                      className="p-2 rounded-lg transition-colors text-[hsl(var(--drawer-foreground))] bg-[hsl(var(--drawer-foreground)/0.10)] hover:bg-[hsl(var(--drawer-foreground)/0.18)]"
                       aria-label={language === "id" ? "Tutup menu" : "Close menu"}
                     >
                       <X size={22} />
@@ -268,16 +274,16 @@ const Navbar = () => {
                         initial={{ opacity: 0, x: -16 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.03 }}
-                        className="border-b border-white/10"
+                        className="border-b border-[hsl(var(--drawer-foreground)/0.12)]"
                       >
                         <Link
                           to={item.path}
                           onClick={() => setIsOpen(false)}
                           className={cn(
-                            "block px-6 py-5 text-lg font-medium transition-colors touch-manipulation text-white",
+                            "block px-6 py-5 text-lg font-medium transition-colors touch-manipulation text-[hsl(var(--drawer-foreground))]",
                             isActive(item.path)
-                              ? "text-primary bg-white/10"
-                              : "hover:bg-white/5 active:bg-white/10"
+                              ? "text-primary bg-[hsl(var(--primary)/0.14)]"
+                              : "hover:bg-[hsl(var(--drawer-foreground)/0.06)] active:bg-[hsl(var(--drawer-foreground)/0.10)]"
                           )}
                         >
                           {item.label}
