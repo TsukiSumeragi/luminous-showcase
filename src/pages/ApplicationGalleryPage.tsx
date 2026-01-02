@@ -14,7 +14,7 @@ const ApplicationGalleryPage = () => {
   const title = isResidential ? t.nav.residential : t.nav.commercial;
 
   return (
-    <main className="pt-32 pb-20">
+    <main className="pt-44 lg:pt-48 pb-20">
       <div className="container mx-auto px-4">
         {/* Back Button */}
         <motion.div

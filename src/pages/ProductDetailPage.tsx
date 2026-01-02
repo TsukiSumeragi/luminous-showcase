@@ -125,7 +125,7 @@ const ProductDetailPage = () => {
 
   if (!product) {
     return (
-      <main className="pt-32 pb-20">
+      <main className="pt-44 lg:pt-48 pb-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="font-display text-3xl mb-4">{t.products.notFound}</h1>
           <Link to="/produk" className="text-primary hover:underline">
@@ -146,7 +146,7 @@ const ProductDetailPage = () => {
   const currentImage = showOn ? product.imageOn : product.imageOff;
 
   return (
-    <main className="pt-32 pb-20">
+    <main className="pt-44 lg:pt-48 pb-20">
       <div className="container mx-auto px-4">
         {/* Back Button */}
         <motion.div
