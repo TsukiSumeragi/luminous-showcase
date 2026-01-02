@@ -64,12 +64,12 @@ const Navbar = () => {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled ? "glass py-2" : "bg-transparent py-4"
+        isScrolled ? "glass py-3" : "bg-background/80 backdrop-blur-md py-4"
       )}
     >
       <div className="container mx-auto px-4">
         {/* Desktop Navigation - Stacked Layout */}
-        <nav className="hidden lg:flex flex-col items-center">
+        <nav className="hidden lg:flex flex-col items-center gap-3">
           {/* Logo Row */}
           <Link to="/">
             <motion.div
@@ -77,7 +77,7 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               className="text-center"
             >
-              <img src="/logo.webp" alt="Luminous Stone" className="h-20 w-auto mx-auto" />
+              <img src="/logo.webp" alt="Luminous Stone" className="h-24 w-auto mx-auto" />
             </motion.div>
           </Link>
 
@@ -184,56 +184,129 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         <nav className="lg:hidden">
-          {/* Mobile Header */}
-          <div className="flex items-center justify-between">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-foreground p-3 -ml-3 touch-manipulation"
-              aria-label="Toggle menu"
-            >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
-
-            {/* Mobile Logo */}
-            <Link to="/" className="absolute left-1/2 -translate-x-1/2">
-              <img src="/logo.webp" alt="Luminous Stone" className="h-14 w-auto" />
-            </Link>
-
-            {/* Language Switcher */}
-            <div className="flex items-center border border-border rounded-full overflow-hidden">
+          {/* Mobile Header - Always show logo and 5 nav items */}
+          <div className="flex flex-col items-center gap-4">
+            {/* Top row: burger, logo, language */}
+            <div className="flex items-center justify-between w-full">
               <button
-                onClick={() => setLanguage("id")}
-                className={cn(
-                  "px-3 py-1.5 text-xs font-medium transition-colors touch-manipulation",
-                  language === "id"
-                    ? "bg-primary text-primary-foreground"
-                    : "text-foreground/60 hover:text-foreground"
-                )}
+                onClick={() => setIsOpen(!isOpen)}
+                className="text-foreground p-2 touch-manipulation"
+                aria-label="Toggle menu"
               >
-                ID
+                {isOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
-              <button
-                onClick={() => setLanguage("en")}
-                className={cn(
-                  "px-3 py-1.5 text-xs font-medium transition-colors touch-manipulation",
-                  language === "en"
-                    ? "bg-primary text-primary-foreground"
-                    : "text-foreground/60 hover:text-foreground"
-                )}
-              >
-                EN
-              </button>
+
+              {/* Mobile Logo - Larger */}
+              <Link to="/">
+                <img src="/logo.webp" alt="Luminous Stone" className="h-16 w-auto" />
+              </Link>
+
+              {/* Language Switcher */}
+              <div className="flex items-center border border-border rounded-full overflow-hidden">
+                <button
+                  onClick={() => setLanguage("id")}
+                  className={cn(
+                    "px-2.5 py-1 text-xs font-medium transition-colors touch-manipulation",
+                    language === "id"
+                      ? "bg-primary text-primary-foreground"
+                      : "text-foreground/60 hover:text-foreground"
+                  )}
+                >
+                  ID
+                </button>
+                <button
+                  onClick={() => setLanguage("en")}
+                  className={cn(
+                    "px-2.5 py-1 text-xs font-medium transition-colors touch-manipulation",
+                    language === "en"
+                      ? "bg-primary text-primary-foreground"
+                      : "text-foreground/60 hover:text-foreground"
+                  )}
+                >
+                  EN
+                </button>
+              </div>
+            </div>
+
+            {/* Bottom row: 5 navigation items always visible */}
+            <div className="flex items-center justify-center gap-3 w-full flex-wrap">
+              {navItems.map((item) => (
+                <div key={item.path} className="relative">
+                  {item.dropdown ? (
+                    <button
+                      onClick={() => toggleMobileDropdown(item.path)}
+                      className={cn(
+                        "flex items-center gap-0.5 text-xs font-medium uppercase tracking-wide transition-colors touch-manipulation px-2 py-1.5",
+                        mobileDropdownOpen === item.path || isActive(item.path)
+                          ? "text-primary"
+                          : "text-foreground/70"
+                      )}
+                    >
+                      {item.label}
+                      <ChevronDown
+                        size={12}
+                        className={cn(
+                          "transition-transform",
+                          mobileDropdownOpen === item.path && "rotate-180"
+                        )}
+                      />
+                    </button>
+                  ) : (
+                    <Link
+                      to={item.path}
+                      className={cn(
+                        "text-xs font-medium uppercase tracking-wide transition-colors touch-manipulation px-2 py-1.5",
+                        isActive(item.path)
+                          ? "text-primary"
+                          : "text-foreground/70"
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Mobile Menu - Full Screen Overlay */}
+          {/* Mobile Dropdown for Applications */}
+          <AnimatePresence>
+            {mobileDropdownOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                className="mt-2 bg-card border border-border rounded-lg overflow-hidden mx-4"
+              >
+                {navItems
+                  .find((item) => item.path === mobileDropdownOpen)
+                  ?.dropdown?.map((subItem) => (
+                    <Link
+                      key={subItem.path}
+                      to={subItem.path}
+                      className={cn(
+                        "flex items-center gap-2 px-4 py-3 text-sm transition-colors touch-manipulation",
+                        isActive(subItem.path)
+                          ? "text-primary bg-muted"
+                          : "text-foreground/70 active:bg-muted"
+                      )}
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary/50" />
+                      {subItem.label}
+                    </Link>
+                  ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Full Screen Menu Overlay - Extended details */}
           <AnimatePresence>
             {isOpen && (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 top-[60px] bg-background z-40"
+                className="fixed inset-0 top-[140px] bg-background z-40"
               >
                 <div className="flex flex-col h-full overflow-y-auto pb-20">
                   {navItems.map((item, index) => (
