@@ -21,7 +21,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a 
-                  href="https://instagram.com/luminousstone.id" 
+                  href="https://www.instagram.com/frantinco.id/" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="flex items-center gap-2 hover:translate-x-1 transition-transform text-muted-foreground hover:text-foreground"
@@ -32,7 +32,7 @@ const Footer = () => {
               </li>
               <li>
                 <a 
-                  href="https://tiktok.com/@luminousstone.id" 
+                  href="https://www.tiktok.com/@frantinco.indonesia" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="flex items-center gap-2 hover:translate-x-1 transition-transform text-muted-foreground hover:text-foreground"
@@ -45,7 +45,7 @@ const Footer = () => {
               </li>
               <li>
                 <a 
-                  href="https://youtube.com/@luminousstone" 
+                  href="https://www.youtube.com/@frantinco.indonesia" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="flex items-center gap-2 hover:translate-x-1 transition-transform text-muted-foreground hover:text-foreground"
@@ -58,7 +58,7 @@ const Footer = () => {
               </li>
               <li>
                 <a 
-                  href="https://facebook.com/luminousstone.id" 
+                  href="https://www.facebook.com/frantinco.hpl.1/?_rdc=1&_rdr#" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="flex items-center gap-2 hover:translate-x-1 transition-transform text-muted-foreground hover:text-foreground"
@@ -113,7 +113,7 @@ const Footer = () => {
               <div className="flex gap-3">
                 <MapPin size={18} className="text-primary flex-shrink-0 mt-1" />
                 <div>
-                  <p className="font-medium text-foreground">PT. Luminous Stone Indonesia</p>
+                  <p className="font-medium text-foreground">PT. Frantinco Indah Makmur</p>
                   <p className="text-sm text-muted-foreground">
                     Kawasan Bizpoint Blok Orlando No. 7, Cikupa, Tangerang, Banten.
                   </p>
@@ -138,7 +138,7 @@ const Footer = () => {
           </Link>
           <p className="text-sm text-muted-foreground">
             Copyright © {new Date().getFullYear()}{" "}
-            <span className="text-foreground">PT Luminous Stone Indonesia</span>
+            <span className="text-foreground">PT Frantinco Indah Makmur</span>
           </p>
         </div>
       </div>

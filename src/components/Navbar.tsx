@@ -53,16 +53,13 @@ const Navbar = () => {
         {/* Desktop Navigation - Stacked Layout */}
         <nav className="hidden lg:flex flex-col items-center">
           {/* Logo Row */}
-          <Link to="/" className="mb-4">
+          <Link to="/">
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-center"
             >
-              <h1 className="font-display text-3xl font-semibold tracking-wide">
-                <span className="gradient-text">LUMINOUS</span>
-                <span className="text-foreground"> STONE</span>
-              </h1>
+              <img src="/logo.webp" alt="Luminous Stone" className="h-14 w-auto mx-auto" />
             </motion.div>
           </Link>
 
@@ -170,7 +167,7 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         <nav className="lg:hidden">
           {/* Mobile Menu Button & Language */}
-          <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center justify-between mb-5">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-foreground p-2"
@@ -207,11 +204,8 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Logo - Below menu */}
-          <Link to="/" className="block text-center">
-            <h1 className="font-display text-2xl font-semibold tracking-wide">
-              <span className="gradient-text">LUMINOUS</span>
-              <span className="text-foreground"> STONE</span>
-            </h1>
+          <Link to="/" className="pt-4 md:pt-0">
+            <img src="/logo.webp" alt="Luminous Stone" className="h-12 w-auto mx-auto" />
           </Link>
 
           {/* Mobile Menu */}
