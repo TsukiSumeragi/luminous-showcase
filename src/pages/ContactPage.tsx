@@ -36,7 +36,7 @@ const ContactPage = () => {
   ];
 
   return (
-    <main className="pt-32 pb-20">
+    <main className="pt-44 lg:pt-48 pb-20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
