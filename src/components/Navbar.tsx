@@ -77,7 +77,7 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               className="text-center"
             >
-              <img src="/logo.webp" alt="Luminous Stone" className="h-14 w-auto mx-auto" />
+              <img src="/logo.webp" alt="Luminous Stone" className="h-20 w-auto mx-auto" />
             </motion.div>
           </Link>
 
@@ -196,7 +196,7 @@ const Navbar = () => {
 
             {/* Mobile Logo */}
             <Link to="/" className="absolute left-1/2 -translate-x-1/2">
-              <img src="/logo.webp" alt="Luminous Stone" className="h-10 w-auto" />
+              <img src="/logo.webp" alt="Luminous Stone" className="h-14 w-auto" />
             </Link>
 
             {/* Language Switcher */}
