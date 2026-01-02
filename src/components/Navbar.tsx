@@ -223,56 +223,70 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Full Screen Menu Overlay */}
+          {/* Mobile Menu Overlay with Click-Away */}
           <AnimatePresence>
             {isOpen && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="fixed inset-0 bg-background z-[60]"
-              >
-                {/* Overlay Header */}
-                <div className="flex items-center justify-between px-6 py-5 border-b border-border bg-background/80 backdrop-blur-md">
-                  <p className="font-display text-2xl font-medium">
-                    {language === "id" ? "Menu Utama" : "Main Menu"}
-                  </p>
-                  <button
-                    onClick={() => setIsOpen(false)}
-                    className="p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors"
-                    aria-label={language === "id" ? "Tutup menu" : "Close menu"}
-                  >
-                    <X size={22} />
-                  </button>
-                </div>
-
-                {/* Items */}
-                <div className="h-[calc(100dvh-84px)] overflow-y-auto">
-                  {mobileNavItems.map((item, index) => (
-                    <motion.div
-                      key={item.path}
-                      initial={{ opacity: 0, x: -16 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.03 }}
-                      className="border-b border-border"
+              <>
+                {/* Dimmed backdrop - click to close */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="fixed inset-0 bg-black/60 z-[60]"
+                  onClick={() => setIsOpen(false)}
+                  aria-label={language === "id" ? "Tutup menu" : "Close menu"}
+                />
+                
+                {/* Slide-out menu panel */}
+                <motion.div
+                  initial={{ x: "-100%" }}
+                  animate={{ x: 0 }}
+                  exit={{ x: "-100%" }}
+                  transition={{ type: "tween", duration: 0.3 }}
+                  className="fixed inset-y-0 left-0 w-4/5 max-w-sm bg-black z-[70]"
+                >
+                  {/* Overlay Header */}
+                  <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
+                    <p className="font-display text-2xl font-medium text-white">
+                      {language === "id" ? "Menu Utama" : "Main Menu"}
+                    </p>
+                    <button
+                      onClick={() => setIsOpen(false)}
+                      className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors text-white"
+                      aria-label={language === "id" ? "Tutup menu" : "Close menu"}
                     >
-                      <Link
-                        to={item.path}
-                        onClick={() => setIsOpen(false)}
-                        className={cn(
-                          "block px-6 py-5 text-lg font-medium transition-colors touch-manipulation",
-                          isActive(item.path)
-                            ? "text-primary bg-muted/40"
-                            : "text-foreground active:bg-muted"
-                        )}
+                      <X size={22} />
+                    </button>
+                  </div>
+
+                  {/* Items */}
+                  <div className="h-[calc(100dvh-84px)] overflow-y-auto">
+                    {mobileNavItems.map((item, index) => (
+                      <motion.div
+                        key={item.path}
+                        initial={{ opacity: 0, x: -16 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.03 }}
+                        className="border-b border-white/10"
                       >
-                        {item.label}
-                      </Link>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
+                        <Link
+                          to={item.path}
+                          onClick={() => setIsOpen(false)}
+                          className={cn(
+                            "block px-6 py-5 text-lg font-medium transition-colors touch-manipulation text-white",
+                            isActive(item.path)
+                              ? "text-primary bg-white/10"
+                              : "hover:bg-white/5 active:bg-white/10"
+                          )}
+                        >
+                          {item.label}
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              </>
             )}
           </AnimatePresence>
         </nav>
