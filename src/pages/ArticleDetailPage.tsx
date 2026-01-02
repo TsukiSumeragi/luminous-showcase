@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 const ArticleDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const article = getArticleBySlug(slug || "");
 
@@ -15,9 +15,11 @@ const ArticleDetailPage = () => {
     return (
       <main className="pt-32 pb-20">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="font-display text-3xl mb-4">Artikel tidak ditemukan</h1>
+          <h1 className="font-display text-3xl mb-4">
+            {language === "id" ? "Artikel tidak ditemukan" : "Article not found"}
+          </h1>
           <Link to="/artikel" className="text-primary hover:underline">
-            Kembali ke Artikel
+            {language === "id" ? "Kembali ke Artikel" : "Back to Articles"}
           </Link>
         </div>
       </main>
@@ -28,12 +30,17 @@ const ArticleDetailPage = () => {
 
   const formatDate = (dateStr: string) => {
     const date = new Date(dateStr);
-    return date.toLocaleDateString("id-ID", {
+    return date.toLocaleDateString(language === "id" ? "id-ID" : "en-US", {
       day: "numeric",
       month: "long",
       year: "numeric",
     });
   };
+
+  const title = language === "id" ? article.title : article.titleEn;
+  const content = language === "id" ? article.content : article.contentEn;
+  const tags = language === "id" ? article.tags : article.tagsEn;
+  const readTime = language === "id" ? article.readTime : article.readTimeEn;
 
   return (
     <main className="pt-32 pb-20">
@@ -49,7 +56,7 @@ const ArticleDetailPage = () => {
             className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
           >
             <ArrowLeft size={18} />
-            <span>Kembali ke Artikel</span>
+            <span>{language === "id" ? "Kembali ke Artikel" : "Back to Articles"}</span>
           </Link>
         </motion.div>
 
@@ -64,14 +71,14 @@ const ArticleDetailPage = () => {
             <div className="aspect-video rounded-lg overflow-hidden mb-8">
               <img
                 src={article.image}
-                alt={article.title}
+                alt={title}
                 className="w-full h-full object-cover"
               />
             </div>
 
             {/* Title */}
             <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-medium mb-6">
-              {article.title}
+              {title}
             </h1>
 
             {/* Meta */}
@@ -82,13 +89,13 @@ const ArticleDetailPage = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Clock size={16} />
-                <span>{article.readTime}</span>
+                <span>{readTime}</span>
               </div>
             </div>
 
             {/* Tags */}
             <div className="flex flex-wrap gap-2 mb-8">
-              {article.tags.map((tag) => (
+              {tags.map((tag) => (
                 <span
                   key={tag}
                   className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
@@ -100,7 +107,7 @@ const ArticleDetailPage = () => {
 
             {/* Content */}
             <div className="prose prose-invert prose-lg max-w-none">
-              {article.content.split("\n").map((paragraph, index) => {
+              {content.split("\n").map((paragraph, index) => {
                 if (paragraph.startsWith("## ")) {
                   return (
                     <h2
@@ -126,6 +133,13 @@ const ArticleDetailPage = () => {
                     <li key={index} className="text-muted-foreground ml-4">
                       {paragraph.replace("- ", "")}
                     </li>
+                  );
+                }
+                if (paragraph.match(/^\d+\./)) {
+                  return (
+                    <p key={index} className="text-muted-foreground mb-2 leading-relaxed">
+                      {paragraph}
+                    </p>
                   );
                 }
                 if (paragraph.trim()) {
@@ -168,16 +182,16 @@ const ArticleDetailPage = () => {
                     <div className="aspect-video image-hover">
                       <img
                         src={related.image}
-                        alt={related.title}
+                        alt={language === "id" ? related.title : related.titleEn}
                         className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="p-4">
                       <h4 className="font-medium text-sm group-hover:text-primary transition-colors line-clamp-2">
-                        {related.title}
+                        {language === "id" ? related.title : related.titleEn}
                       </h4>
                       <p className="text-xs text-muted-foreground mt-1">
-                        {related.readTime}
+                        {language === "id" ? related.readTime : related.readTimeEn}
                       </p>
                     </div>
                   </Link>
@@ -188,7 +202,7 @@ const ArticleDetailPage = () => {
               <div className="mt-8">
                 <h4 className="font-display text-lg font-medium mb-4">Tags</h4>
                 <div className="flex flex-wrap gap-2">
-                  {article.tags.map((tag) => (
+                  {tags.map((tag) => (
                     <span
                       key={tag}
                       className="px-3 py-1 bg-muted text-muted-foreground rounded-full text-xs"
