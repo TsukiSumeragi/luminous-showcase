@@ -188,13 +188,8 @@ const Navbar = () => {
         <nav className="lg:hidden">
           {/* Mobile Header - Burger, Logo, Language */}
           <div className="flex items-center justify-between">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-foreground p-2 touch-manipulation"
-              aria-label={language === "id" ? "Buka menu" : "Open menu"}
-            >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
+            {/* Spacer to keep logo centered (menu button is floating at bottom on mobile) */}
+            <div className="w-12" aria-hidden="true" />
 
             {/* Mobile Logo */}
             <Link to="/">
@@ -228,6 +223,23 @@ const Navbar = () => {
             </div>
           </div>
 
+          {/* Floating menu icon (mobile only) */}
+          <button
+            onClick={() => setIsOpen((v) => !v)}
+            className="fixed bottom-4 left-4 z-[55] rounded-full p-3 shadow-lg border border-[hsl(var(--drawer-foreground)/0.12)] bg-[hsl(var(--drawer-background))] text-[hsl(var(--drawer-foreground))] touch-manipulation"
+            aria-label={
+              isOpen
+                ? language === "id"
+                  ? "Tutup menu"
+                  : "Close menu"
+                : language === "id"
+                  ? "Buka menu"
+                  : "Open menu"
+            }
+          >
+            {isOpen ? <X size={26} /> : <Menu size={26} />}
+          </button>
+
           {/* Mobile Menu Overlay with Click-Away */}
           <AnimatePresence>
             {isOpen && (
@@ -239,7 +251,7 @@ const Navbar = () => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.2 }}
-                  className="fixed inset-0 z-[60] cursor-pointer border-0 p-0 bg-[hsl(var(--drawer-background)/0.6)]"
+                  className="fixed inset-0 z-[60] cursor-pointer border-0 p-0 bg-[hsl(var(--drawer-background))]"
                   onClick={() => setIsOpen(false)}
                   aria-label={language === "id" ? "Tutup menu" : "Close menu"}
                 />
