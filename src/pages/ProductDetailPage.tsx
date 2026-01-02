@@ -1,12 +1,12 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, MessageCircle, ZoomIn, X } from "lucide-react";
+import { ArrowLeft, MessageCircle, ZoomIn, ZoomOut, X, RotateCcw } from "lucide-react";
 import { getProductByCode } from "@/data/products";
 import { OtherProducts } from "@/components/ProductCard";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { useState, useRef } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 
 const ProductDetailPage = () => {
   const { code } = useParams<{ code: string }>();
@@ -14,10 +14,114 @@ const ProductDetailPage = () => {
   const { t, language } = useLanguage();
   const [showOn, setShowOn] = useState(false);
   const [isZoomed, setIsZoomed] = useState(false);
-  const [zoomPosition, setZoomPosition] = useState({ x: 50, y: 50 });
-  const imageRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(1);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const product = getProductByCode(code || "");
+
+  // Reset zoom when modal closes
+  useEffect(() => {
+    if (!isZoomed) {
+      setScale(1);
+      setPosition({ x: 0, y: 0 });
+    }
+  }, [isZoomed]);
+
+  const handleWheel = useCallback((e: React.WheelEvent) => {
+    e.preventDefault();
+    const delta = e.deltaY > 0 ? -0.2 : 0.2;
+    setScale((prev) => Math.min(Math.max(prev + delta, 0.5), 5));
+  }, []);
+
+  const handleZoomIn = () => {
+    setScale((prev) => Math.min(prev + 0.5, 5));
+  };
+
+  const handleZoomOut = () => {
+    setScale((prev) => Math.max(prev - 0.5, 0.5));
+  };
+
+  const handleReset = () => {
+    setScale(1);
+    setPosition({ x: 0, y: 0 });
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (scale > 1) {
+      setIsDragging(true);
+      setDragStart({ x: e.clientX - position.x, y: e.clientY - position.y });
+    }
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (isDragging && scale > 1) {
+      setPosition({
+        x: e.clientX - dragStart.x,
+        y: e.clientY - dragStart.y,
+      });
+    }
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  // Touch events for mobile pinch-to-zoom
+  const [lastTouchDistance, setLastTouchDistance] = useState<number | null>(null);
+  const [lastTouchCenter, setLastTouchCenter] = useState<{ x: number; y: number } | null>(null);
+
+  const getTouchDistance = (touches: React.TouchList) => {
+    if (touches.length < 2) return null;
+    const dx = touches[0].clientX - touches[1].clientX;
+    const dy = touches[0].clientY - touches[1].clientY;
+    return Math.sqrt(dx * dx + dy * dy);
+  };
+
+  const getTouchCenter = (touches: React.TouchList) => {
+    if (touches.length < 2) return null;
+    return {
+      x: (touches[0].clientX + touches[1].clientX) / 2,
+      y: (touches[0].clientY + touches[1].clientY) / 2,
+    };
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (e.touches.length === 2) {
+      setLastTouchDistance(getTouchDistance(e.touches));
+      setLastTouchCenter(getTouchCenter(e.touches));
+    } else if (e.touches.length === 1 && scale > 1) {
+      setIsDragging(true);
+      setDragStart({
+        x: e.touches[0].clientX - position.x,
+        y: e.touches[0].clientY - position.y,
+      });
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (e.touches.length === 2) {
+      const newDistance = getTouchDistance(e.touches);
+      if (newDistance && lastTouchDistance) {
+        const delta = (newDistance - lastTouchDistance) * 0.01;
+        setScale((prev) => Math.min(Math.max(prev + delta, 0.5), 5));
+        setLastTouchDistance(newDistance);
+      }
+    } else if (e.touches.length === 1 && isDragging && scale > 1) {
+      setPosition({
+        x: e.touches[0].clientX - dragStart.x,
+        y: e.touches[0].clientY - dragStart.y,
+      });
+    }
+  };
+
+  const handleTouchEnd = () => {
+    setLastTouchDistance(null);
+    setLastTouchCenter(null);
+    setIsDragging(false);
+  };
 
   if (!product) {
     return (
@@ -38,14 +142,6 @@ const ProductDetailPage = () => {
       : `Hello, I'm interested in ordering the product ${product.name} - ${product.code} that I'm viewing on your website.`
   );
   const whatsappLink = `https://api.whatsapp.com/send/?phone=6289666150888&text=${whatsappMessage}`;
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!imageRef.current) return;
-    const rect = imageRef.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    setZoomPosition({ x, y });
-  };
 
   const currentImage = showOn ? product.imageOn : product.imageOff;
 
@@ -75,9 +171,7 @@ const ProductDetailPage = () => {
             className="space-y-4"
           >
             <div
-              ref={imageRef}
               onClick={() => setIsZoomed(true)}
-              onMouseMove={handleMouseMove}
               className={cn(
                 "relative aspect-square rounded-lg overflow-hidden card-premium cursor-zoom-in group",
                 showOn && "glow-border"
@@ -209,48 +303,50 @@ const ProductDetailPage = () => {
         <OtherProducts currentProductId={product.id} />
       </div>
 
-      {/* Zoom Modal */}
+      {/* Zoom Modal with Full Control */}
       <AnimatePresence>
         {isZoomed && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-background/95 backdrop-blur-sm flex items-center justify-center p-4"
-            onClick={() => setIsZoomed(false)}
+            className="fixed inset-0 z-50 bg-background/95 backdrop-blur-sm flex flex-col"
           >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="relative max-w-5xl w-full max-h-[90vh] overflow-hidden rounded-lg"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                onClick={() => setIsZoomed(false)}
-                className="absolute top-4 right-4 z-10 p-2 bg-background/80 backdrop-blur rounded-full hover:bg-background transition-colors"
-              >
-                <X size={24} />
-              </button>
-              <div
-                className="w-full h-full overflow-auto cursor-move"
-                style={{ maxHeight: "85vh" }}
-              >
-                <img
-                  src={currentImage}
-                  alt={product.name}
-                  className="w-full h-auto min-w-[150%] object-contain"
-                  style={{
-                    transformOrigin: `${zoomPosition.x}% ${zoomPosition.y}%`,
-                  }}
-                />
+            {/* Header Controls */}
+            <div className="flex items-center justify-between p-4 border-b border-border">
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={handleZoomOut}
+                  className="p-2 bg-muted hover:bg-muted/80 rounded-lg transition-colors"
+                  title="Zoom Out"
+                >
+                  <ZoomOut size={20} />
+                </button>
+                <span className="px-3 py-1 bg-muted rounded-lg text-sm font-medium min-w-[60px] text-center">
+                  {Math.round(scale * 100)}%
+                </span>
+                <button
+                  onClick={handleZoomIn}
+                  className="p-2 bg-muted hover:bg-muted/80 rounded-lg transition-colors"
+                  title="Zoom In"
+                >
+                  <ZoomIn size={20} />
+                </button>
+                <button
+                  onClick={handleReset}
+                  className="p-2 bg-muted hover:bg-muted/80 rounded-lg transition-colors ml-2"
+                  title="Reset"
+                >
+                  <RotateCcw size={20} />
+                </button>
               </div>
-              {/* Toggle in modal */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 bg-background/80 backdrop-blur p-2 rounded-full">
+
+              {/* Toggle OFF/ON */}
+              <div className="flex items-center gap-2 bg-muted rounded-full p-1">
                 <button
                   onClick={() => setShowOn(false)}
                   className={cn(
-                    "px-4 py-2 rounded-full text-sm font-medium transition-colors",
+                    "px-4 py-1.5 rounded-full text-sm font-medium transition-colors",
                     !showOn ? "bg-primary text-primary-foreground" : "text-foreground/60 hover:text-foreground"
                   )}
                 >
@@ -259,14 +355,60 @@ const ProductDetailPage = () => {
                 <button
                   onClick={() => setShowOn(true)}
                   className={cn(
-                    "px-4 py-2 rounded-full text-sm font-medium transition-colors",
+                    "px-4 py-1.5 rounded-full text-sm font-medium transition-colors",
                     showOn ? "bg-primary text-primary-foreground" : "text-foreground/60 hover:text-foreground"
                   )}
                 >
                   {t.hero.on}
                 </button>
               </div>
-            </motion.div>
+
+              <button
+                onClick={() => setIsZoomed(false)}
+                className="p-2 bg-muted hover:bg-muted/80 rounded-lg transition-colors"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Zoomable Image Area */}
+            <div
+              ref={containerRef}
+              className="flex-1 overflow-hidden cursor-grab active:cursor-grabbing"
+              onWheel={handleWheel}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              <div
+                className="w-full h-full flex items-center justify-center"
+                style={{
+                  transform: `translate(${position.x}px, ${position.y}px)`,
+                }}
+              >
+                <img
+                  src={currentImage}
+                  alt={product.name}
+                  className="max-w-none select-none"
+                  style={{
+                    transform: `scale(${scale})`,
+                    transition: isDragging ? "none" : "transform 0.2s ease-out",
+                  }}
+                  draggable={false}
+                />
+              </div>
+            </div>
+
+            {/* Helper Text */}
+            <div className="p-4 text-center text-sm text-muted-foreground border-t border-border">
+              {language === "id" 
+                ? "Scroll atau pinch untuk zoom • Drag untuk geser gambar" 
+                : "Scroll or pinch to zoom • Drag to pan"}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

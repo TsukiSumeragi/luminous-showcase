@@ -184,129 +184,57 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         <nav className="lg:hidden">
-          {/* Mobile Header - Always show logo and 5 nav items */}
-          <div className="flex flex-col items-center gap-4">
-            {/* Top row: burger, logo, language */}
-            <div className="flex items-center justify-between w-full">
+          {/* Mobile Header - Burger, Logo, Language */}
+          <div className="flex items-center justify-between">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-foreground p-2 touch-manipulation"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+
+            {/* Mobile Logo - Larger */}
+            <Link to="/">
+              <img src="/logo.webp" alt="Luminous Stone" className="h-14 w-auto" />
+            </Link>
+
+            {/* Language Switcher */}
+            <div className="flex items-center border border-border rounded-full overflow-hidden">
               <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="text-foreground p-2 touch-manipulation"
-                aria-label="Toggle menu"
+                onClick={() => setLanguage("id")}
+                className={cn(
+                  "px-2.5 py-1 text-xs font-medium transition-colors touch-manipulation",
+                  language === "id"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-foreground/60 hover:text-foreground"
+                )}
               >
-                {isOpen ? <X size={28} /> : <Menu size={28} />}
+                ID
               </button>
-
-              {/* Mobile Logo - Larger */}
-              <Link to="/">
-                <img src="/logo.webp" alt="Luminous Stone" className="h-16 w-auto" />
-              </Link>
-
-              {/* Language Switcher */}
-              <div className="flex items-center border border-border rounded-full overflow-hidden">
-                <button
-                  onClick={() => setLanguage("id")}
-                  className={cn(
-                    "px-2.5 py-1 text-xs font-medium transition-colors touch-manipulation",
-                    language === "id"
-                      ? "bg-primary text-primary-foreground"
-                      : "text-foreground/60 hover:text-foreground"
-                  )}
-                >
-                  ID
-                </button>
-                <button
-                  onClick={() => setLanguage("en")}
-                  className={cn(
-                    "px-2.5 py-1 text-xs font-medium transition-colors touch-manipulation",
-                    language === "en"
-                      ? "bg-primary text-primary-foreground"
-                      : "text-foreground/60 hover:text-foreground"
-                  )}
-                >
-                  EN
-                </button>
-              </div>
-            </div>
-
-            {/* Bottom row: 5 navigation items always visible */}
-            <div className="flex items-center justify-center gap-3 w-full flex-wrap">
-              {navItems.map((item) => (
-                <div key={item.path} className="relative">
-                  {item.dropdown ? (
-                    <button
-                      onClick={() => toggleMobileDropdown(item.path)}
-                      className={cn(
-                        "flex items-center gap-0.5 text-xs font-medium uppercase tracking-wide transition-colors touch-manipulation px-2 py-1.5",
-                        mobileDropdownOpen === item.path || isActive(item.path)
-                          ? "text-primary"
-                          : "text-foreground/70"
-                      )}
-                    >
-                      {item.label}
-                      <ChevronDown
-                        size={12}
-                        className={cn(
-                          "transition-transform",
-                          mobileDropdownOpen === item.path && "rotate-180"
-                        )}
-                      />
-                    </button>
-                  ) : (
-                    <Link
-                      to={item.path}
-                      className={cn(
-                        "text-xs font-medium uppercase tracking-wide transition-colors touch-manipulation px-2 py-1.5",
-                        isActive(item.path)
-                          ? "text-primary"
-                          : "text-foreground/70"
-                      )}
-                    >
-                      {item.label}
-                    </Link>
-                  )}
-                </div>
-              ))}
+              <button
+                onClick={() => setLanguage("en")}
+                className={cn(
+                  "px-2.5 py-1 text-xs font-medium transition-colors touch-manipulation",
+                  language === "en"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-foreground/60 hover:text-foreground"
+                )}
+              >
+                EN
+              </button>
             </div>
           </div>
 
-          {/* Mobile Dropdown for Applications */}
-          <AnimatePresence>
-            {mobileDropdownOpen && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                className="mt-2 bg-card border border-border rounded-lg overflow-hidden mx-4"
-              >
-                {navItems
-                  .find((item) => item.path === mobileDropdownOpen)
-                  ?.dropdown?.map((subItem) => (
-                    <Link
-                      key={subItem.path}
-                      to={subItem.path}
-                      className={cn(
-                        "flex items-center gap-2 px-4 py-3 text-sm transition-colors touch-manipulation",
-                        isActive(subItem.path)
-                          ? "text-primary bg-muted"
-                          : "text-foreground/70 active:bg-muted"
-                      )}
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary/50" />
-                      {subItem.label}
-                    </Link>
-                  ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          {/* Full Screen Menu Overlay - Extended details */}
+          {/* Full Screen Menu Overlay */}
           <AnimatePresence>
             {isOpen && (
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="fixed inset-0 top-[140px] bg-background z-40"
+                initial={{ opacity: 0, x: "-100%" }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: "-100%" }}
+                transition={{ type: "tween", duration: 0.3 }}
+                className="fixed inset-0 top-[72px] bg-background z-40"
               >
                 <div className="flex flex-col h-full overflow-y-auto pb-20">
                   {navItems.map((item, index) => (
@@ -322,8 +250,8 @@ const Navbar = () => {
                           <button
                             onClick={() => toggleMobileDropdown(item.path)}
                             className={cn(
-                              "flex items-center justify-between w-full px-6 py-5 text-base font-medium transition-colors touch-manipulation",
-                              "text-foreground active:bg-muted"
+                              "flex items-center justify-between w-full px-6 py-5 text-lg font-medium transition-colors touch-manipulation",
+                              isActive(item.path) ? "text-primary" : "text-foreground active:bg-muted"
                             )}
                           >
                             {item.label}
@@ -366,7 +294,7 @@ const Navbar = () => {
                         <Link
                           to={item.path}
                           className={cn(
-                            "block px-6 py-5 text-base font-medium transition-colors touch-manipulation",
+                            "block px-6 py-5 text-lg font-medium transition-colors touch-manipulation",
                             isActive(item.path)
                               ? "text-primary bg-muted/50"
                               : "text-foreground active:bg-muted"
