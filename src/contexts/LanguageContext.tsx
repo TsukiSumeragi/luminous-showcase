@@ -17,6 +17,7 @@ interface Translations {
     subtitle: string;
     off: string;
     on: string;
+    ourCollection: string;
   };
   common: {
     orderNow: string;
@@ -39,6 +40,7 @@ interface Translations {
     orContactVia: string;
     weWillContactYou: string;
     writeYourMessage: string;
+    clickToZoom: string;
   };
   products: {
     title: string;
@@ -49,6 +51,7 @@ interface Translations {
     title: string;
     subtitle: string;
     notFound: string;
+    exploreWorld: string;
   };
   applications: {
     title: string;
@@ -66,12 +69,15 @@ interface Translations {
     message: string;
     send: string;
     success: string;
+    address: string;
+    phone: string;
+    workingHours: string;
+    contactViaWhatsapp: string;
+    whatsappDesc: string;
   };
   footer: {
     socialMedia: string;
     productInfo: string;
-    catalog: string;
-    orderCatalog: string;
     location: string;
     contactUs: string;
   };
@@ -93,6 +99,7 @@ const translations: Record<Language, Translations> = {
       subtitle: "Transformasi ruang Anda dengan teknologi backlit stone premium",
       off: "OFF",
       on: "ON",
+      ourCollection: "KOLEKSI KAMI",
     },
     common: {
       orderNow: "Pesan Sekarang",
@@ -115,6 +122,7 @@ const translations: Record<Language, Translations> = {
       orContactVia: "Atau hubungi langsung via WhatsApp:",
       weWillContactYou: "Kami akan segera menghubungi Anda.",
       writeYourMessage: "Tuliskan pesan Anda...",
+      clickToZoom: "Klik untuk memperbesar",
     },
     products: {
       title: "Produk",
@@ -125,6 +133,7 @@ const translations: Record<Language, Translations> = {
       title: "Artikel",
       subtitle: "Temukan inspirasi, panduan, dan tips seputar batu luminous",
       notFound: "Artikel tidak ditemukan",
+      exploreWorld: "Eksplorasi dunia batu luminous melalui artikel-artikel kami",
     },
     applications: {
       title: "Pengaplikasian",
@@ -142,12 +151,15 @@ const translations: Record<Language, Translations> = {
       message: "Pesan Anda",
       send: "Kirim Pesan",
       success: "Pesan berhasil dikirim!",
+      address: "Alamat",
+      phone: "Telepon",
+      workingHours: "Jam Kerja",
+      contactViaWhatsapp: "Hubungi Kami via WhatsApp",
+      whatsappDesc: "Untuk konsultasi produk dan pemesanan, hubungi kami langsung melalui WhatsApp",
     },
     footer: {
       socialMedia: "Media Sosial",
       productInfo: "Info Produk",
-      catalog: "Katalog",
-      orderCatalog: "Pesan Katalog",
       location: "Lokasi",
       contactUs: "Hubungi Kami",
     },
@@ -167,6 +179,7 @@ const translations: Record<Language, Translations> = {
       subtitle: "Transform your space with premium backlit stone technology",
       off: "OFF",
       on: "ON",
+      ourCollection: "OUR COLLECTION",
     },
     common: {
       orderNow: "Order Now",
@@ -189,6 +202,7 @@ const translations: Record<Language, Translations> = {
       orContactVia: "Or contact us directly via WhatsApp:",
       weWillContactYou: "We will contact you shortly.",
       writeYourMessage: "Write your message...",
+      clickToZoom: "Click to zoom",
     },
     products: {
       title: "Products",
@@ -199,6 +213,7 @@ const translations: Record<Language, Translations> = {
       title: "Articles",
       subtitle: "Discover inspiration, guides, and tips about luminous stone",
       notFound: "Article not found",
+      exploreWorld: "Explore the world of luminous stone through our articles",
     },
     applications: {
       title: "Applications",
@@ -216,12 +231,15 @@ const translations: Record<Language, Translations> = {
       message: "Your Message",
       send: "Send Message",
       success: "Message sent successfully!",
+      address: "Address",
+      phone: "Phone",
+      workingHours: "Working Hours",
+      contactViaWhatsapp: "Contact Us via WhatsApp",
+      whatsappDesc: "For product consultation and ordering, contact us directly via WhatsApp",
     },
     footer: {
       socialMedia: "Social Media",
       productInfo: "Product Info",
-      catalog: "Catalog",
-      orderCatalog: "Order Catalog",
       location: "Location",
       contactUs: "Contact Us",
     },

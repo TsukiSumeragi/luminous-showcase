@@ -20,7 +20,7 @@ const ArticlesSection = () => {
             {t.nav.articles}
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Eksplorasi dunia batu luminous melalui artikel-artikel kami
+            {t.articles.exploreWorld}
           </p>
         </motion.div>
 

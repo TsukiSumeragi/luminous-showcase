@@ -9,7 +9,7 @@ const ContactPage = () => {
   const contactInfo = [
     {
       icon: MapPin,
-      title: language === "id" ? "Alamat" : "Address",
+      title: t.contact.address,
       content: [
         "Kawasan Bizpoint Multiguna,",
         "Jl. Pemda Tigaraksa No.7,",
@@ -19,7 +19,7 @@ const ContactPage = () => {
     },
     {
       icon: Phone,
-      title: language === "id" ? "Telepon" : "Phone",
+      title: t.contact.phone,
       content: [
         "(021)-222-00988",
         "(021)-222-00989"
@@ -27,10 +27,10 @@ const ContactPage = () => {
     },
     {
       icon: Clock,
-      title: language === "id" ? "Jam Kerja" : "Working Hours",
+      title: t.contact.workingHours,
       content: [
         language === "id" ? "Senin - Jumat: 08:30 - 16:30" : "Monday - Friday: 08:30 - 16:30",
-        language === "id" ? "Hari Sabtu, Minggu dan Hari Libur: Tutup" : "Saturday, Sunday and Holidays: Closed"
+        language === "id" ? "Sabtu, Minggu & Libur: Tutup" : "Saturday, Sunday & Holidays: Closed"
       ],
     },
   ];
@@ -88,12 +88,10 @@ const ContactPage = () => {
           >
             <MessageCircle className="w-12 h-12 text-primary mx-auto mb-4" />
             <h3 className="font-display text-2xl font-medium mb-3">
-              {language === "id" ? "Hubungi Kami via WhatsApp" : "Contact Us via WhatsApp"}
+              {t.contact.contactViaWhatsapp}
             </h3>
             <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-              {language === "id" 
-                ? "Untuk konsultasi produk dan pemesanan, hubungi kami langsung melalui WhatsApp"
-                : "For product consultation and ordering, contact us directly via WhatsApp"}
+              {t.contact.whatsappDesc}
             </p>
             <Button
               asChild
@@ -127,7 +125,7 @@ const ContactPage = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Lokasi PT. Frantinco Indah Makmur"
+                title={language === "id" ? "Lokasi PT. Frantinco Indah Makmur" : "PT. Frantinco Indah Makmur Location"}
                 className="w-full"
               />
             </div>

@@ -37,7 +37,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 relative z-10 h-full flex flex-col">
         {/* Header Section */}
         <div className="flex flex-col items-center mb-6">
-          <p className="text-white/40 text-[10px] tracking-[0.5em] uppercase">OUR COLLECTION</p>
+          <p className="text-white/40 text-[10px] tracking-[0.5em] uppercase">{t.hero.ourCollection}</p>
         </div>
 
         {/* Container Utama Produk & Navigasi */}
