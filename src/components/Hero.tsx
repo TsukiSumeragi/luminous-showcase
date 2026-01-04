@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Lightbulb, LightbulbOff } from "lucide-react";
 import { products } from "@/data/products";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { cn } from "@/lib/utils";
@@ -15,7 +14,6 @@ const Hero = () => {
   };
 
   return (
-    // h-screen dan pt-32 agar logo Frantinco tidak mentok atas
     <section className="relative h-screen w-full pt-32 pb-8 flex flex-col items-center justify-center overflow-hidden bg-background">
       {/* Background Gradient & Glow Effect */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-card" />
@@ -40,10 +38,10 @@ const Hero = () => {
           <p className="text-white/40 text-[10px] tracking-[0.5em] uppercase">{t.hero.ourCollection}</p>
         </div>
 
-        {/* Container Utama Produk & Navigasi */}
+        {/* Container Utama Produk */}
         <div className="relative flex-1 flex flex-col md:grid md:grid-cols-5 gap-3 md:gap-4 max-w-7xl mx-auto w-full">
           
-          {/* Loop Produk (5 Strips Horizontal di Mobile) */}
+          {/* Loop Produk (5 Strips) */}
           {products.map((product, index) => (
             <motion.div
               key={product.id}
@@ -52,7 +50,6 @@ const Hero = () => {
               transition={{ delay: 0.1 + index * 0.1 }}
               className="relative flex-1"
             >
-              {/* HYPERLINK KE DETAIL PRODUK TETAP AKTIF */}
               <Link to={`/produk/${product.code}`} className="block h-full w-full">
                 <div
                   className={cn(
@@ -90,49 +87,30 @@ const Hero = () => {
               </Link>
             </motion.div>
           ))}
-
-          {/* NAVIGASI ICON ON/OFF */}
-          <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between pointer-events-none z-30 px-2">
-            {/* Tombol OFF (muncul saat ON) */}
-            <motion.button
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ 
-                opacity: isOn ? 1 : 0, 
-                x: isOn ? 0 : -20, 
-                pointerEvents: isOn ? "auto" : "none" 
-              }}
-              onClick={() => setIsOn(false)}
-              className="w-12 h-12 flex items-center justify-center rounded-full bg-black/60 border border-white/10 text-white backdrop-blur-md hover:bg-amber-500 transition-all"
-              title={t.hero.off}
-            >
-              <LightbulbOff className="w-6 h-6" />
-            </motion.button>
-
-            {/* Tombol ON (muncul saat OFF) */}
-            <motion.button
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ 
-                opacity: !isOn ? 1 : 0, 
-                x: !isOn ? 0 : 20, 
-                pointerEvents: !isOn ? "auto" : "none" 
-              }}
-              onClick={() => setIsOn(true)}
-              className="w-12 h-12 flex items-center justify-center rounded-full bg-black/60 border border-white/10 text-amber-400 backdrop-blur-md hover:bg-amber-500 hover:text-white transition-all"
-              title={t.hero.on}
-            >
-              <Lightbulb className="w-6 h-6" />
-            </motion.button>
-          </div>
         </div>
 
+        {/* Toggle Slider ON/OFF */}
         <div className="flex justify-center items-center gap-4 mt-6">
-          <span className={cn("flex items-center gap-1.5 text-[10px] uppercase tracking-widest transition-colors", !isOn ? "text-primary font-bold" : "text-muted-foreground")}>
-            <LightbulbOff size={14} />
+          <span className={cn("text-[10px] uppercase tracking-widest transition-colors", !isOn ? "text-primary font-bold" : "text-muted-foreground")}>
             {t.hero.off}
           </span>
-          <div className={cn("w-12 h-1 rounded-full transition-colors", isOn ? "bg-primary" : "bg-muted")} />
-          <span className={cn("flex items-center gap-1.5 text-[10px] uppercase tracking-widest transition-colors", isOn ? "text-primary font-bold" : "text-muted-foreground")}>
-            <Lightbulb size={14} />
+          
+          {/* Toggle Switch */}
+          <button
+            onClick={handleToggle}
+            className={cn(
+              "relative w-14 h-7 rounded-full transition-colors duration-300 focus:outline-none",
+              isOn ? "bg-primary" : "bg-muted"
+            )}
+          >
+            <motion.div
+              className="absolute top-1 left-1 w-5 h-5 rounded-full bg-white shadow-md"
+              animate={{ x: isOn ? 28 : 0 }}
+              transition={{ type: "spring", stiffness: 500, damping: 30 }}
+            />
+          </button>
+          
+          <span className={cn("text-[10px] uppercase tracking-widest transition-colors", isOn ? "text-primary font-bold" : "text-muted-foreground")}>
             {t.hero.on}
           </span>
         </div>
