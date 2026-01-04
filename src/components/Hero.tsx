@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Lightbulb, LightbulbOff } from "lucide-react";
 import { products } from "@/data/products";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { cn } from "@/lib/utils";
@@ -91,9 +91,9 @@ const Hero = () => {
             </motion.div>
           ))}
 
-          {/* NAVIGASI PANAH (Kanan & Kiri) */}
+          {/* NAVIGASI ICON ON/OFF */}
           <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between pointer-events-none z-30 px-2">
-            {/* Tombol Kiri (Turn OFF) */}
+            {/* Tombol OFF (muncul saat ON) */}
             <motion.button
               initial={{ opacity: 0, x: -20 }}
               animate={{ 
@@ -103,11 +103,12 @@ const Hero = () => {
               }}
               onClick={() => setIsOn(false)}
               className="w-12 h-12 flex items-center justify-center rounded-full bg-black/60 border border-white/10 text-white backdrop-blur-md hover:bg-amber-500 transition-all"
+              title={t.hero.off}
             >
-              <ChevronLeft className="w-6 h-6" />
+              <LightbulbOff className="w-6 h-6" />
             </motion.button>
 
-            {/* Tombol Kanan (Turn ON) */}
+            {/* Tombol ON (muncul saat OFF) */}
             <motion.button
               initial={{ opacity: 0, x: 20 }}
               animate={{ 
@@ -116,19 +117,22 @@ const Hero = () => {
                 pointerEvents: !isOn ? "auto" : "none" 
               }}
               onClick={() => setIsOn(true)}
-              className="w-12 h-12 flex items-center justify-center rounded-full bg-black/60 border border-white/10 text-white backdrop-blur-md hover:bg-amber-500 transition-all"
+              className="w-12 h-12 flex items-center justify-center rounded-full bg-black/60 border border-white/10 text-amber-400 backdrop-blur-md hover:bg-amber-500 hover:text-white transition-all"
+              title={t.hero.on}
             >
-              <ChevronRight className="w-6 h-6" />
+              <Lightbulb className="w-6 h-6" />
             </motion.button>
           </div>
         </div>
 
         <div className="flex justify-center items-center gap-4 mt-6">
-          <span className={cn("text-[10px] uppercase tracking-widest transition-colors", !isOn ? "text-primary font-bold" : "text-muted-foreground")}>
+          <span className={cn("flex items-center gap-1.5 text-[10px] uppercase tracking-widest transition-colors", !isOn ? "text-primary font-bold" : "text-muted-foreground")}>
+            <LightbulbOff size={14} />
             {t.hero.off}
           </span>
           <div className={cn("w-12 h-1 rounded-full transition-colors", isOn ? "bg-primary" : "bg-muted")} />
-          <span className={cn("text-[10px] uppercase tracking-widest transition-colors", isOn ? "text-primary font-bold" : "text-muted-foreground")}>
+          <span className={cn("flex items-center gap-1.5 text-[10px] uppercase tracking-widest transition-colors", isOn ? "text-primary font-bold" : "text-muted-foreground")}>
+            <Lightbulb size={14} />
             {t.hero.on}
           </span>
         </div>

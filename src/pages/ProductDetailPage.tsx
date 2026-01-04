@@ -1,6 +1,6 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, MessageCircle, ZoomIn, ZoomOut, X, RotateCcw } from "lucide-react";
+import { ArrowLeft, MessageCircle, ZoomIn, ZoomOut, X, RotateCcw, Lightbulb, LightbulbOff } from "lucide-react";
 import { getProductByCode } from "@/data/products";
 import { OtherProducts } from "@/components/ProductCard";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -341,25 +341,29 @@ const ProductDetailPage = () => {
                 </button>
               </div>
 
-              {/* Toggle OFF/ON */}
+              {/* Toggle OFF/ON with Icons */}
               <div className="flex items-center gap-2 bg-muted rounded-full p-1">
                 <button
                   onClick={() => setShowOn(false)}
                   className={cn(
-                    "px-4 py-1.5 rounded-full text-sm font-medium transition-colors",
+                    "p-2 rounded-full transition-colors flex items-center gap-2",
                     !showOn ? "bg-primary text-primary-foreground" : "text-foreground/60 hover:text-foreground"
                   )}
+                  title={t.hero.off}
                 >
-                  {t.hero.off}
+                  <LightbulbOff size={18} />
+                  <span className="text-sm font-medium hidden sm:inline">{t.hero.off}</span>
                 </button>
                 <button
                   onClick={() => setShowOn(true)}
                   className={cn(
-                    "px-4 py-1.5 rounded-full text-sm font-medium transition-colors",
+                    "p-2 rounded-full transition-colors flex items-center gap-2",
                     showOn ? "bg-primary text-primary-foreground" : "text-foreground/60 hover:text-foreground"
                   )}
+                  title={t.hero.on}
                 >
-                  {t.hero.on}
+                  <Lightbulb size={18} />
+                  <span className="text-sm font-medium hidden sm:inline">{t.hero.on}</span>
                 </button>
               </div>
 

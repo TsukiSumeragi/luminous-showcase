@@ -342,6 +342,604 @@ This material is practical, just clean it periodically to maintain a natural and
     readTime: "5 menit",
     readTimeEn: "5 min",
   },
+  {
+    id: "5",
+    slug: "luminous-stone-untuk-ruang-tamu",
+    title: "Luminous Stone untuk Ruang Tamu: Inspirasi Desain Mewah",
+    titleEn: "Luminous Stone for Living Room: Luxury Design Inspiration",
+    excerpt: "Transformasi ruang tamu Anda menjadi ruangan yang elegan dengan panel Luminous Stone sebagai focal point.",
+    excerptEn: "Transform your living room into an elegant space with Luminous Stone panels as a focal point.",
+    content: `
+## Mengapa Luminous Stone Cocok untuk Ruang Tamu?
+
+Ruang tamu adalah pusat aktivitas keluarga dan tempat menerima tamu. Dengan Luminous Stone, Anda dapat menciptakan kesan pertama yang memukau dan suasana hangat yang menyambut.
+
+### Ide Aplikasi
+
+**1. Backdrop TV**
+Pasang Luminous Stone sebagai backdrop di belakang TV untuk menciptakan focal point yang dramatis. Saat lampu backlit dinyalakan, panel batu akan memancarkan cahaya lembut yang menambah dimensi ruangan.
+
+**2. Feature Wall**
+Jadikan satu sisi dinding sebagai feature wall dengan Luminous Stone. Kombinasikan dengan pencahayaan LED untuk efek yang lebih menakjubkan.
+
+**3. Partisi Ruangan**
+Gunakan panel Luminous Stone sebagai partisi transparan antara ruang tamu dan ruang makan, menciptakan pemisahan ruang yang artistik.
+
+### Tips Penataan
+
+- Pilih tone warna yang sesuai dengan tema interior Anda
+- Gunakan LED warm white untuk suasana hangat dan cozy
+- Kombinasikan dengan furniture minimalis untuk keseimbangan visual
+- Tambahkan dimmer untuk kontrol intensitas cahaya
+    `,
+    contentEn: `
+## Why is Luminous Stone Perfect for Living Rooms?
+
+The living room is the center of family activities and a place to receive guests. With Luminous Stone, you can create a stunning first impression and a warm welcoming atmosphere.
+
+### Application Ideas
+
+**1. TV Backdrop**
+Install Luminous Stone as a backdrop behind your TV to create a dramatic focal point. When the backlight is turned on, the stone panel will emit a soft glow that adds dimension to the room.
+
+**2. Feature Wall**
+Make one side of the wall a feature wall with Luminous Stone. Combine with LED lighting for an even more stunning effect.
+
+**3. Room Partition**
+Use Luminous Stone panels as a transparent partition between living and dining rooms, creating an artistic spatial separation.
+
+### Arrangement Tips
+
+- Choose color tones that match your interior theme
+- Use warm white LED for a warm and cozy atmosphere
+- Combine with minimalist furniture for visual balance
+- Add a dimmer for light intensity control
+    `,
+    image: article2,
+    date: "2024-11-28",
+    tags: ["Ruang Tamu", "Desain", "Interior"],
+    tagsEn: ["Living Room", "Design", "Interior"],
+    readTime: "4 menit",
+    readTimeEn: "4 min",
+  },
+  {
+    id: "6",
+    slug: "luminous-stone-untuk-kamar-mandi",
+    title: "Luminous Stone untuk Kamar Mandi: Spa Experience di Rumah",
+    titleEn: "Luminous Stone for Bathroom: Spa Experience at Home",
+    excerpt: "Hadirkan nuansa spa mewah di kamar mandi Anda dengan panel Luminous Stone yang tahan kelembapan.",
+    excerptEn: "Bring a luxurious spa vibe to your bathroom with moisture-resistant Luminous Stone panels.",
+    content: `
+## Kamar Mandi dengan Sentuhan Mewah
+
+Kamar mandi bukan lagi sekadar ruang fungsional. Dengan Luminous Stone, Anda dapat mengubahnya menjadi oasis relaksasi pribadi layaknya spa hotel bintang lima.
+
+### Keunggulan untuk Kamar Mandi
+
+**Tahan Kelembapan**
+Luminous Stone tidak mudah menyerap air sehingga aman digunakan di area basah seperti kamar mandi.
+
+**Mudah Dibersihkan**
+Permukaan yang halus memudahkan pembersihan dari noda sabun dan air.
+
+**Tampilan Elegan**
+Efek backlit menciptakan suasana tenang dan mewah yang sempurna untuk relaksasi.
+
+### Aplikasi di Kamar Mandi
+
+- **Dinding Shower** - Panel luminous di belakang shower area
+- **Bathtub Surround** - Mengelilingi bathtub dengan cahaya lembut
+- **Vanity Backdrop** - Di belakang cermin wastafel
+- **Ceiling Panel** - Plafon dengan efek langit bercahaya
+    `,
+    contentEn: `
+## Bathroom with a Luxurious Touch
+
+Bathrooms are no longer just functional spaces. With Luminous Stone, you can transform it into a personal relaxation oasis like a five-star hotel spa.
+
+### Advantages for Bathrooms
+
+**Moisture Resistant**
+Luminous Stone does not easily absorb water, making it safe for wet areas like bathrooms.
+
+**Easy to Clean**
+The smooth surface makes it easy to clean soap and water stains.
+
+**Elegant Appearance**
+The backlit effect creates a calm and luxurious atmosphere perfect for relaxation.
+
+### Bathroom Applications
+
+- **Shower Wall** - Luminous panels behind the shower area
+- **Bathtub Surround** - Surrounding the bathtub with soft light
+- **Vanity Backdrop** - Behind the sink mirror
+- **Ceiling Panel** - Ceiling with glowing sky effect
+    `,
+    image: article3,
+    date: "2024-11-25",
+    tags: ["Kamar Mandi", "Spa", "Interior"],
+    tagsEn: ["Bathroom", "Spa", "Interior"],
+    readTime: "4 menit",
+    readTimeEn: "4 min",
+  },
+  {
+    id: "7",
+    slug: "luminous-stone-untuk-hotel-dan-restoran",
+    title: "Luminous Stone untuk Hotel dan Restoran: Menciptakan Kesan Premium",
+    titleEn: "Luminous Stone for Hotels and Restaurants: Creating a Premium Impression",
+    excerpt: "Tingkatkan nilai estetika properti komersial Anda dengan material Luminous Stone yang memukau.",
+    excerptEn: "Enhance the aesthetic value of your commercial property with stunning Luminous Stone material.",
+    content: `
+## Luminous Stone di Dunia Hospitality
+
+Industri hotel dan restoran berlomba-lomba menciptakan pengalaman visual yang tak terlupakan. Luminous Stone menjadi pilihan favorit desainer interior untuk proyek-proyek high-end.
+
+### Aplikasi di Hotel
+
+**Lobby & Resepsionis**
+Meja resepsionis dengan panel backlit menjadi focal point yang mengesankan saat tamu pertama kali masuk.
+
+**Koridor & Lift**
+Dinding koridor dan interior lift dengan Luminous Stone menciptakan perjalanan yang elegan.
+
+**Kamar Tamu**
+Headboard dan dinding aksen di kamar premium memberikan pengalaman menginap yang berbeda.
+
+### Aplikasi di Restoran
+
+**Bar Counter**
+Bar counter dengan efek backlit menjadi pusat perhatian dan meningkatkan suasana premium.
+
+**Private Dining**
+Ruang VIP dengan panel luminous untuk pengalaman makan yang eksklusif.
+
+**Fasad Eksterior**
+Dinding luar restoran yang eye-catching menarik perhatian pengunjung.
+
+### ROI untuk Bisnis
+
+- Meningkatkan perceived value properti
+- Diferensiasi dari kompetitor
+- Pengalaman visual yang instagrammable
+- Daya tahan tinggi mengurangi biaya renovasi
+    `,
+    contentEn: `
+## Luminous Stone in the Hospitality World
+
+The hotel and restaurant industry competes to create unforgettable visual experiences. Luminous Stone has become a favorite choice of interior designers for high-end projects.
+
+### Hotel Applications
+
+**Lobby & Reception**
+A reception desk with backlit panels becomes an impressive focal point when guests first enter.
+
+**Corridors & Elevators**
+Corridor walls and elevator interiors with Luminous Stone create an elegant journey.
+
+**Guest Rooms**
+Headboards and accent walls in premium rooms provide a different staying experience.
+
+### Restaurant Applications
+
+**Bar Counter**
+A backlit bar counter becomes the center of attention and enhances the premium atmosphere.
+
+**Private Dining**
+VIP rooms with luminous panels for an exclusive dining experience.
+
+**Exterior Facade**
+Eye-catching exterior restaurant walls attract visitors' attention.
+
+### ROI for Business
+
+- Increases perceived property value
+- Differentiation from competitors
+- Instagrammable visual experience
+- High durability reduces renovation costs
+    `,
+    image: article1,
+    date: "2024-11-20",
+    tags: ["Hotel", "Restoran", "Komersial"],
+    tagsEn: ["Hotel", "Restaurant", "Commercial"],
+    readTime: "5 menit",
+    readTimeEn: "5 min",
+  },
+  {
+    id: "8",
+    slug: "perbandingan-luminous-stone-vs-onyx",
+    title: "Perbandingan Luminous Stone vs Onyx Alami: Mana yang Lebih Baik?",
+    titleEn: "Luminous Stone vs Natural Onyx Comparison: Which is Better?",
+    excerpt: "Analisis mendalam tentang perbedaan Luminous Stone dengan batu onyx alami dari segi harga, instalasi, dan performa.",
+    excerptEn: "In-depth analysis of the differences between Luminous Stone and natural onyx in terms of price, installation, and performance.",
+    content: `
+## Onyx Alami vs Luminous Stone
+
+Banyak yang bertanya, apa bedanya Luminous Stone dengan onyx alami? Berikut perbandingan lengkapnya:
+
+### Berat & Ketebalan
+
+| Aspek | Onyx Alami | Luminous Stone |
+|-------|------------|----------------|
+| Ketebalan | 15-20 mm | 2-3 mm |
+| Berat | 40-50 kg/m² | 6-8 kg/sheet |
+
+### Instalasi
+
+**Onyx Alami:**
+- Membutuhkan struktur penopang khusus
+- Proses instalasi lebih lama
+- Risiko retak saat pengangkutan tinggi
+
+**Luminous Stone:**
+- Dapat dipasang pada dinding biasa
+- Instalasi cepat dan praktis
+- Fleksibel dan tidak mudah retak
+
+### Harga
+
+Luminous Stone menawarkan tampilan serupa dengan harga yang jauh lebih terjangkau dibanding onyx alami.
+
+### Perawatan
+
+Luminous Stone lebih mudah dirawat karena permukaannya yang dilapisi resin berkualitas tinggi.
+
+### Kesimpulan
+
+Luminous Stone adalah pilihan cerdas bagi yang menginginkan keindahan onyx tanpa kompleksitas dan biaya tinggi dari material alami.
+    `,
+    contentEn: `
+## Natural Onyx vs Luminous Stone
+
+Many ask, what's the difference between Luminous Stone and natural onyx? Here's a complete comparison:
+
+### Weight & Thickness
+
+| Aspect | Natural Onyx | Luminous Stone |
+|--------|--------------|----------------|
+| Thickness | 15-20 mm | 2-3 mm |
+| Weight | 40-50 kg/m² | 6-8 kg/sheet |
+
+### Installation
+
+**Natural Onyx:**
+- Requires special support structure
+- Longer installation process
+- High risk of cracking during transport
+
+**Luminous Stone:**
+- Can be installed on regular walls
+- Quick and practical installation
+- Flexible and not easily cracked
+
+### Price
+
+Luminous Stone offers a similar appearance at a much more affordable price compared to natural onyx.
+
+### Maintenance
+
+Luminous Stone is easier to maintain due to its high-quality resin-coated surface.
+
+### Conclusion
+
+Luminous Stone is a smart choice for those who want the beauty of onyx without the complexity and high cost of natural materials.
+    `,
+    image: article2,
+    date: "2024-11-15",
+    tags: ["Perbandingan", "Onyx", "Material"],
+    tagsEn: ["Comparison", "Onyx", "Material"],
+    readTime: "6 menit",
+    readTimeEn: "6 min",
+  },
+  {
+    id: "9",
+    slug: "ide-pencahayaan-untuk-luminous-stone",
+    title: "Ide Pencahayaan untuk Luminous Stone: Memaksimalkan Efek Backlit",
+    titleEn: "Lighting Ideas for Luminous Stone: Maximizing the Backlit Effect",
+    excerpt: "Panduan memilih dan mengatur pencahayaan LED untuk hasil backlit Luminous Stone yang optimal.",
+    excerptEn: "Guide to choosing and setting up LED lighting for optimal Luminous Stone backlit results.",
+    content: `
+## Pentingnya Pencahayaan yang Tepat
+
+Luminous Stone mencapai keindahan maksimalnya saat diberi pencahayaan dari belakang. Berikut tips memilih sistem pencahayaan yang tepat:
+
+### Jenis LED yang Direkomendasikan
+
+**LED Strip**
+- Fleksibel untuk area dengan kontur
+- Tersedia berbagai warna temperatur
+- Mudah dipotong sesuai ukuran
+
+**LED Panel**
+- Pencahayaan lebih merata
+- Cocok untuk area luas
+- Umur pakai lebih lama
+
+### Temperatur Warna
+
+- **Warm White (2700-3000K):** Suasana hangat, cocok untuk residential
+- **Natural White (4000K):** Keseimbangan, cocok untuk showroom
+- **Cool White (6000K):** Kesan modern, cocok untuk komersial
+
+### Tips Instalasi Lighting
+
+1. Gunakan diffuser akrilik untuk cahaya merata
+2. Jaga jarak 4-8 cm antara LED dan panel stone
+3. Pasang dimmer untuk kontrol intensitas
+4. Gunakan HPL putih glossy sebagai reflektor
+    `,
+    contentEn: `
+## The Importance of Proper Lighting
+
+Luminous Stone achieves its maximum beauty when backlit. Here are tips for choosing the right lighting system:
+
+### Recommended LED Types
+
+**LED Strip**
+- Flexible for contoured areas
+- Available in various color temperatures
+- Easy to cut to size
+
+**LED Panel**
+- More even lighting
+- Suitable for large areas
+- Longer lifespan
+
+### Color Temperature
+
+- **Warm White (2700-3000K):** Warm atmosphere, suitable for residential
+- **Natural White (4000K):** Balance, suitable for showrooms
+- **Cool White (6000K):** Modern impression, suitable for commercial
+
+### Lighting Installation Tips
+
+1. Use acrylic diffuser for even light
+2. Maintain 4-8 cm distance between LED and stone panel
+3. Install dimmer for intensity control
+4. Use glossy white HPL as reflector
+    `,
+    image: article3,
+    date: "2024-11-10",
+    tags: ["Pencahayaan", "LED", "Tips"],
+    tagsEn: ["Lighting", "LED", "Tips"],
+    readTime: "5 menit",
+    readTimeEn: "5 min",
+  },
+  {
+    id: "10",
+    slug: "luminous-stone-untuk-eksterior",
+    title: "Luminous Stone untuk Eksterior: Fasad dan Dinding Luar",
+    titleEn: "Luminous Stone for Exterior: Facade and Outdoor Walls",
+    excerpt: "Material tahan cuaca yang sempurna untuk aplikasi eksterior dengan tampilan premium.",
+    excerptEn: "Weather-resistant material perfect for exterior applications with a premium look.",
+    content: `
+## Luminous Stone di Luar Ruangan
+
+Salah satu keunggulan Luminous Stone adalah ketahanannya terhadap cuaca, menjadikannya pilihan ideal untuk aplikasi eksterior.
+
+### Keunggulan untuk Eksterior
+
+**Tahan UV**
+Warna dan kualitas tidak pudar meski terpapar sinar matahari langsung.
+
+**Tahan Cuaca**
+Kuat menghadapi hujan, panas, dan perubahan temperatur.
+
+**Anti-Jamur**
+Tidak menyerap kelembapan sehingga mencegah pertumbuhan jamur.
+
+### Aplikasi Eksterior
+
+- **Fasad Bangunan** - Tampilan gedung yang memukau
+- **Entrance & Gate** - Gerbang masuk yang impressive
+- **Pillar Cladding** - Pelapis pilar eksterior
+- **Garden Wall** - Dinding taman dengan backlit
+- **Pool Area** - Dinding kolam renang
+
+### Pertimbangan Instalasi
+
+- Gunakan sealant yang sesuai untuk outdoor
+- Pastikan drainase air yang baik
+- Lindungi sambungan dari infiltrasi air
+- Gunakan LED outdoor-rated untuk backlit
+    `,
+    contentEn: `
+## Luminous Stone Outdoors
+
+One of Luminous Stone's advantages is its weather resistance, making it an ideal choice for exterior applications.
+
+### Advantages for Exterior
+
+**UV Resistant**
+Color and quality don't fade even under direct sunlight.
+
+**Weather Resistant**
+Strong against rain, heat, and temperature changes.
+
+**Anti-Mold**
+Doesn't absorb moisture, preventing mold growth.
+
+### Exterior Applications
+
+- **Building Facade** - Stunning building appearance
+- **Entrance & Gate** - Impressive entry gates
+- **Pillar Cladding** - Exterior pillar covering
+- **Garden Wall** - Garden wall with backlit
+- **Pool Area** - Swimming pool walls
+
+### Installation Considerations
+
+- Use appropriate outdoor sealant
+- Ensure proper water drainage
+- Protect joints from water infiltration
+- Use outdoor-rated LED for backlit
+    `,
+    image: article1,
+    date: "2024-11-05",
+    tags: ["Eksterior", "Fasad", "Outdoor"],
+    tagsEn: ["Exterior", "Facade", "Outdoor"],
+    readTime: "4 menit",
+    readTimeEn: "4 min",
+  },
+  {
+    id: "11",
+    slug: "luminous-stone-untuk-ceiling",
+    title: "Luminous Stone untuk Ceiling: Langit-Langit yang Memukau",
+    titleEn: "Luminous Stone for Ceiling: Stunning Overhead Installations",
+    excerpt: "Aplikasi Luminous Stone di plafon untuk menciptakan efek visual yang dramatis dan unik.",
+    excerptEn: "Luminous Stone ceiling applications to create dramatic and unique visual effects.",
+    content: `
+## Plafon dengan Efek Bercahaya
+
+Penggunaan Luminous Stone di ceiling adalah salah satu aplikasi paling spektakuler. Bayangkan langit-langit yang memancarkan cahaya lembut seperti langit berbintang.
+
+### Mengapa Ceiling?
+
+**Ringan**
+Dengan berat hanya 6-8 kg per sheet, Luminous Stone aman untuk instalasi ceiling tanpa beban struktural berlebih.
+
+**Efek WOW**
+Plafon bercahaya menciptakan pengalaman ruang yang benar-benar berbeda dan memorable.
+
+**Pencahayaan Ambient**
+Menggantikan lampu konvensional dengan pencahayaan ambient yang lembut dan merata.
+
+### Aplikasi Ceiling
+
+- **Ruang Tamu** - Living room ceiling feature
+- **Lobby Hotel** - Grand entrance ceiling
+- **Spa Room** - Relaxing atmosphere ceiling
+- **Bedroom** - Romantic ambiance ceiling
+- **Restaurant** - Fine dining ceiling
+
+### Tips Instalasi Ceiling
+
+1. Gunakan rangka aluminium yang kuat
+2. Pastikan akses untuk maintenance LED
+3. Pertimbangkan heat dissipation
+4. Gunakan panel akrilik sebagai diffuser
+    `,
+    contentEn: `
+## Ceiling with Glowing Effect
+
+Using Luminous Stone on ceilings is one of the most spectacular applications. Imagine a ceiling that emits soft light like a starry sky.
+
+### Why Ceiling?
+
+**Lightweight**
+With only 6-8 kg per sheet, Luminous Stone is safe for ceiling installation without excessive structural load.
+
+**WOW Effect**
+A glowing ceiling creates a completely different and memorable spatial experience.
+
+**Ambient Lighting**
+Replaces conventional lights with soft and even ambient lighting.
+
+### Ceiling Applications
+
+- **Living Room** - Living room ceiling feature
+- **Hotel Lobby** - Grand entrance ceiling
+- **Spa Room** - Relaxing atmosphere ceiling
+- **Bedroom** - Romantic ambiance ceiling
+- **Restaurant** - Fine dining ceiling
+
+### Ceiling Installation Tips
+
+1. Use strong aluminum frame
+2. Ensure access for LED maintenance
+3. Consider heat dissipation
+4. Use acrylic panels as diffuser
+    `,
+    image: article2,
+    date: "2024-10-30",
+    tags: ["Ceiling", "Plafon", "Interior"],
+    tagsEn: ["Ceiling", "Plafond", "Interior"],
+    readTime: "4 menit",
+    readTimeEn: "4 min",
+  },
+  {
+    id: "12",
+    slug: "kesalahan-umum-instalasi-luminous-stone",
+    title: "Kesalahan Umum dalam Instalasi Luminous Stone dan Cara Menghindarinya",
+    titleEn: "Common Luminous Stone Installation Mistakes and How to Avoid Them",
+    excerpt: "Hindari kesalahan-kesalahan ini agar hasil pemasangan Luminous Stone Anda sempurna.",
+    excerptEn: "Avoid these mistakes for perfect Luminous Stone installation results.",
+    content: `
+## Kesalahan yang Sering Terjadi
+
+Meski instalasi Luminous Stone relatif mudah, ada beberapa kesalahan umum yang harus dihindari:
+
+### 1. Jarak LED Terlalu Dekat
+
+**Masalah:** Muncul hotspot atau titik terang yang tidak merata
+**Solusi:** Jaga jarak 4-8 cm antara LED dan panel stone
+
+### 2. Tidak Menggunakan Diffuser
+
+**Masalah:** Cahaya tidak menyebar merata, terlihat garis-garis LED
+**Solusi:** Gunakan akrilik diffuser (susu/opal) di antara LED dan stone
+
+### 3. Lem yang Tidak Sesuai
+
+**Masalah:** Panel terlepas atau menguning
+**Solusi:** Gunakan epoxy resin clear yang direkomendasikan
+
+### 4. Permukaan Tidak Rata
+
+**Masalah:** Panel tidak menempel sempurna
+**Solusi:** Pastikan permukaan pemasangan rata dan bersih
+
+### 5. Tidak Ada Sealant di Tepi
+
+**Masalah:** Debu dan air masuk ke celah
+**Solusi:** Aplikasikan silicone sealant transparan di semua tepi
+
+### 6. LED Tidak Berkualitas
+
+**Masalah:** Cahaya tidak merata atau cepat rusak
+**Solusi:** Gunakan LED strip/panel berkualitas dengan garansi
+    `,
+    contentEn: `
+## Common Mistakes
+
+Although Luminous Stone installation is relatively easy, there are common mistakes to avoid:
+
+### 1. LED Distance Too Close
+
+**Problem:** Hotspots or uneven bright spots appear
+**Solution:** Maintain 4-8 cm distance between LED and stone panel
+
+### 2. Not Using Diffuser
+
+**Problem:** Light doesn't spread evenly, LED lines visible
+**Solution:** Use diffuser acrylic (milky/opal) between LED and stone
+
+### 3. Wrong Adhesive
+
+**Problem:** Panels come off or turn yellow
+**Solution:** Use recommended clear epoxy resin
+
+### 4. Uneven Surface
+
+**Problem:** Panel doesn't stick perfectly
+**Solution:** Ensure mounting surface is flat and clean
+
+### 5. No Edge Sealant
+
+**Problem:** Dust and water enter gaps
+**Solution:** Apply transparent silicone sealant on all edges
+
+### 6. Low Quality LED
+
+**Problem:** Uneven light or quick failure
+**Solution:** Use quality LED strip/panel with warranty
+    `,
+    image: article3,
+    date: "2024-10-25",
+    tags: ["Instalasi", "Tips", "Kesalahan"],
+    tagsEn: ["Installation", "Tips", "Mistakes"],
+    readTime: "5 menit",
+    readTimeEn: "5 min",
+  },
 ];
 
 export const getArticleBySlug = (slug: string): Article | undefined => {
