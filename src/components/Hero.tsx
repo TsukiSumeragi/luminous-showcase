@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { products } from "@/data/products";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { cn } from "@/lib/utils";
@@ -87,29 +88,47 @@ const Hero = () => {
               </Link>
             </motion.div>
           ))}
+
+          {/* Navigation Arrows Left & Right */}
+          <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between pointer-events-none z-30 px-2">
+            {/* Left Arrow - OFF (visible when ON) */}
+            <motion.button
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ 
+                opacity: isOn ? 1 : 0, 
+                x: isOn ? 0 : -20, 
+                pointerEvents: isOn ? "auto" : "none" 
+              }}
+              onClick={() => setIsOn(false)}
+              className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-black/60 border border-white/10 text-white backdrop-blur-md hover:bg-primary hover:text-primary-foreground transition-all pointer-events-auto"
+              title={t.hero.off}
+            >
+              <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+            </motion.button>
+
+            {/* Right Arrow - ON (visible when OFF) */}
+            <motion.button
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ 
+                opacity: !isOn ? 1 : 0, 
+                x: !isOn ? 0 : 20, 
+                pointerEvents: !isOn ? "auto" : "none" 
+              }}
+              onClick={() => setIsOn(true)}
+              className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-black/60 border border-white/10 text-primary backdrop-blur-md hover:bg-primary hover:text-primary-foreground transition-all pointer-events-auto"
+              title={t.hero.on}
+            >
+              <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+            </motion.button>
+          </div>
         </div>
 
-        {/* Toggle Slider ON/OFF */}
+        {/* Toggle Status Indicator */}
         <div className="flex justify-center items-center gap-4 mt-6">
           <span className={cn("text-[10px] uppercase tracking-widest transition-colors", !isOn ? "text-primary font-bold" : "text-muted-foreground")}>
             {t.hero.off}
           </span>
-          
-          {/* Toggle Switch */}
-          <button
-            onClick={handleToggle}
-            className={cn(
-              "relative w-14 h-7 rounded-full transition-colors duration-300 focus:outline-none",
-              isOn ? "bg-primary" : "bg-muted"
-            )}
-          >
-            <motion.div
-              className="absolute top-1 left-1 w-5 h-5 rounded-full bg-white shadow-md"
-              animate={{ x: isOn ? 28 : 0 }}
-              transition={{ type: "spring", stiffness: 500, damping: 30 }}
-            />
-          </button>
-          
+          <div className={cn("w-12 h-1 rounded-full transition-colors", isOn ? "bg-primary" : "bg-muted")} />
           <span className={cn("text-[10px] uppercase tracking-widest transition-colors", isOn ? "text-primary font-bold" : "text-muted-foreground")}>
             {t.hero.on}
           </span>
