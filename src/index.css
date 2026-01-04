@@ -154,6 +154,11 @@
     @apply bg-clip-text text-transparent;
     background-image: var(--gradient-glow);
   }
+
+  /* Safe area for bottom navigation on mobile (iPhone notch, etc.) */
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
 }
 
 @layer utilities {

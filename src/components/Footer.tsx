@@ -4,16 +4,29 @@ import {
   Instagram, 
   Phone,
   MapPin,
-  FileText
+  FileText,
+  Sparkles
 } from "lucide-react";
 
 const Footer = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+
+  const maintenanceTips = language === "id" 
+    ? [
+        "Bersihkan dengan kain lembut dan sabun ringan",
+        "Hindari bahan kimia keras atau abrasif",
+        "Lap segera jika terkena tumpahan cairan",
+      ]
+    : [
+        "Clean with soft cloth and mild soap",
+        "Avoid harsh chemicals or abrasives", 
+        "Wipe immediately if liquid spills",
+      ];
 
   return (
-    <footer className="bg-[#1a1a1a] text-foreground">
+    <footer className="bg-[#1a1a1a] text-foreground pb-20 lg:pb-0">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           
           {/* Kolom 1: Media Sosial */}
           <div>
@@ -85,10 +98,34 @@ const Footer = () => {
                   {t.nav.articles}
                 </Link>
               </li>
+              <li>
+                <Link 
+                  to="/produk" 
+                  className="flex items-center gap-2 hover:translate-x-1 transition-transform text-muted-foreground hover:text-foreground"
+                >
+                  <Sparkles size={18} />
+                  {t.nav.products}
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Kolom 3: Lokasi & Maps */}
+          {/* Kolom 3: Tips Perawatan */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-primary">
+              {language === "id" ? "Tips Perawatan" : "Maintenance Tips"}
+            </h3>
+            <ul className="space-y-2">
+              {maintenanceTips.map((tip, index) => (
+                <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  {tip}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Kolom 4: Lokasi & Kontak */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-primary">{t.footer.location}</h3>
             <div className="space-y-4">
@@ -120,7 +157,7 @@ const Footer = () => {
           </Link>
           <p className="text-sm text-muted-foreground">
             Copyright © {new Date().getFullYear()}{" "}
-            <span className="text-foreground">PT Frantinco Indah Makmur</span>
+            <span className="text-foreground">PT. Frantinco Indah Makmur</span>. All Rights Reserved.
           </p>
         </div>
       </div>

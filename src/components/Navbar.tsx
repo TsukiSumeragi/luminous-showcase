@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { cn } from "@/lib/utils";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
@@ -21,21 +20,8 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    setIsOpen(false);
     setIsDropdownOpen(false);
   }, [location]);
-
-  // Lock body scroll when mobile menu is open
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isOpen]);
 
   const navItems = [
     { label: t.nav.home, path: "/" },
@@ -50,14 +36,6 @@ const Navbar = () => {
     },
     { label: t.nav.articles, path: "/artikel" },
     { label: t.nav.contact, path: "/kontak" },
-  ];
-
-  // Mobile should only show "Menu Utama" (top-level pages)
-  const mobileNavItems = [
-    { label: t.nav.home, path: "/" },
-    ...navItems
-      .filter((item) => item.path !== "/")
-      .map(({ label, path }) => ({ label, path })),
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -184,16 +162,12 @@ const Navbar = () => {
           </div>
         </nav>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Header - Logo & Language Only (Bottom Nav handles menu) */}
         <nav className="lg:hidden">
-          {/* Mobile Header - Burger, Logo, Language */}
           <div className="flex items-center justify-between">
-            {/* Spacer to keep logo centered (menu button is floating at bottom on mobile) */}
-            <div className="w-12" aria-hidden="true" />
-
             {/* Mobile Logo */}
             <Link to="/">
-              <img src="/logo.webp" alt="Luminous Stone" className="h-14 w-auto" />
+              <img src="/logo.webp" alt="Luminous Stone" className="h-12 w-auto" />
             </Link>
 
             {/* Language Switcher */}
@@ -222,91 +196,6 @@ const Navbar = () => {
               </button>
             </div>
           </div>
-
-          {/* Floating menu icon (mobile only) */}
-          <button
-            onClick={() => setIsOpen((v) => !v)}
-            className="fixed bottom-4 left-4 z-[55] rounded-full p-3 shadow-lg border border-[hsl(var(--drawer-foreground)/0.12)] bg-[hsl(var(--drawer-background))] text-[hsl(var(--drawer-foreground))] touch-manipulation"
-            aria-label={
-              isOpen
-                ? language === "id"
-                  ? "Tutup menu"
-                  : "Close menu"
-                : language === "id"
-                  ? "Buka menu"
-                  : "Open menu"
-            }
-          >
-            {isOpen ? <X size={26} /> : <Menu size={26} />}
-          </button>
-
-          {/* Mobile Menu Overlay with Click-Away */}
-          <AnimatePresence>
-            {isOpen && (
-              <>
-                {/* Dimmed backdrop - click to close */}
-                <motion.button
-                  type="button"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="fixed inset-0 z-[60] cursor-pointer border-0 p-0 bg-[hsl(var(--drawer-background))]"
-                  onClick={() => setIsOpen(false)}
-                  aria-label={language === "id" ? "Tutup menu" : "Close menu"}
-                />
-
-                {/* Slide-out menu panel */}
-                <motion.div
-                  initial={{ x: "-100%" }}
-                  animate={{ x: 0 }}
-                  exit={{ x: "-100%" }}
-                  transition={{ type: "tween", duration: 0.3 }}
-                  className="fixed inset-y-0 left-0 z-[70] w-4/5 max-w-sm bg-[hsl(var(--drawer-background))]"
-                >
-                  {/* Overlay Header */}
-                  <div className="flex items-center justify-between px-6 py-5 border-b border-[hsl(var(--drawer-foreground)/0.12)]">
-                    <p className="font-display text-2xl font-medium text-[hsl(var(--drawer-foreground))]">
-                      {language === "id" ? "Menu Utama" : "Main Menu"}
-                    </p>
-                    <button
-                      onClick={() => setIsOpen(false)}
-                      className="p-2 rounded-lg transition-colors text-[hsl(var(--drawer-foreground))] bg-[hsl(var(--drawer-foreground)/0.10)] hover:bg-[hsl(var(--drawer-foreground)/0.18)]"
-                      aria-label={language === "id" ? "Tutup menu" : "Close menu"}
-                    >
-                      <X size={22} />
-                    </button>
-                  </div>
-
-                  {/* Items */}
-                  <div className="h-[calc(100dvh-84px)] overflow-y-auto">
-                    {mobileNavItems.map((item, index) => (
-                      <motion.div
-                        key={item.path}
-                        initial={{ opacity: 0, x: -16 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.03 }}
-                        className="border-b border-[hsl(var(--drawer-foreground)/0.12)]"
-                      >
-                        <Link
-                          to={item.path}
-                          onClick={() => setIsOpen(false)}
-                          className={cn(
-                            "block px-6 py-5 text-lg font-medium transition-colors touch-manipulation text-[hsl(var(--drawer-foreground))]",
-                            isActive(item.path)
-                              ? "text-primary bg-[hsl(var(--primary)/0.14)]"
-                              : "hover:bg-[hsl(var(--drawer-foreground)/0.06)] active:bg-[hsl(var(--drawer-foreground)/0.10)]"
-                          )}
-                        >
-                          {item.label}
-                        </Link>
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
-              </>
-            )}
-          </AnimatePresence>
         </nav>
       </div>
     </header>
