@@ -27,9 +27,7 @@ export interface GalleryItem {
 }
 
 export const galleryItems: GalleryItem[] = [
-  // =====================
-  // RESIDENSIAL (10 items)
-  // =====================
+  // Residential
   {
     id: "r1",
     image: livingRoom,
@@ -130,9 +128,7 @@ export const galleryItems: GalleryItem[] = [
     category: "residential",
     subCategory: "home-bar",
   },
-  // =====================
-  // KOMERSIAL (3 items)
-  // =====================
+  // Commercial
   {
     id: "c1",
     image: resepsionis,

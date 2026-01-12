@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { products, Product } from "@/data/products";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { cn } from "@/lib/utils";
 
 interface ProductCardProps {
   product: Product;
@@ -10,8 +9,6 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, index }: ProductCardProps) => {
-  const { t } = useLanguage();
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -66,7 +63,7 @@ export const OtherProducts = ({ currentProductId }: OtherProductsProps) => {
     <div>
       <h3 className="font-display text-2xl font-medium mb-6">{t.common.otherProducts}</h3>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {otherProducts.map((product, index) => (
+        {otherProducts.map((product) => (
           <Link
             key={product.id}
             to={`/produk/${product.code}`}
