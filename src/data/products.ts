@@ -33,18 +33,6 @@ export interface Product {
   };
 }
 
-// Product features based on official PDF documentation
-const officialFeatures = {
-  translucent: "Tembus Cahaya (Translucent)",
-  sunResistance: "Tahan Sinar Matahari",
-  lightweight: "Ringan & Fleksibel",
-  moistureResistant: "Tahan Kelembapan",
-  weatherResistant: "Tahan Cuaca",
-  stainResistant: "Tahan Noda",
-  naturalPattern: "Pola Alami",
-  easyInstall: "Mudah Dipasang",
-};
-
 export const products: Product[] = [
   {
     id: "1",
@@ -56,13 +44,9 @@ export const products: Product[] = [
     description: "Batu alami yang dikupas tipis dipadukan dengan resin transparan berkualitas tinggi. Memiliki sifat tembus cahaya yang menghasilkan efek bercahaya saat diberi pencahayaan belakang (backlit), memberikan tampilan mewah dan hangat. Sangat cocok untuk dinding aksen, backdrop, maupun area eksterior.",
     shortDescription: "Panel batu transparan dengan efek backlit yang menghadirkan nuansa hangat alami.",
     material: "Lapisan Batu Alam + Resin Transparan",
-    features: [officialFeatures.translucent, officialFeatures.sunResistance, officialFeatures.lightweight, officialFeatures.weatherResistant],
+    features: ["Tembus Cahaya (Translucent)", "Tahan Sinar Matahari", "Ringan & Fleksibel", "Tahan Cuaca"],
     category: "luminous-stone",
-    specifications: { 
-      size: "1220 mm x 2440 mm", 
-      thickness: "2 mm - 3 mm", 
-      weight: "6 - 8 kg/sheet" 
-    }
+    specifications: { size: "1220 mm x 2440 mm", thickness: "2 mm - 3 mm", weight: "6 - 8 kg/sheet" }
   },
   {
     id: "2",
@@ -74,13 +58,9 @@ export const products: Product[] = [
     description: "Material batu alam tipis dengan tekstur abu-abu elegan yang dipadukan resin berkualitas tinggi. Ringan, fleksibel, dan tahan terhadap kelembapan, menjadikannya pilihan sempurna untuk dekorasi modern kontemporer baik di interior maupun eksterior.",
     shortDescription: "Tekstur batu abu-abu rustik untuk desain modern minimalis.",
     material: "Lapisan Batu Alam + Resin Transparan",
-    features: [officialFeatures.moistureResistant, officialFeatures.weatherResistant, officialFeatures.stainResistant, officialFeatures.naturalPattern],
+    features: ["Tahan Kelembapan", "Tahan Cuaca", "Tahan Noda", "Pola Alami"],
     category: "luminous-stone",
-    specifications: { 
-      size: "1220 mm x 2440 mm", 
-      thickness: "2 mm - 3 mm", 
-      weight: "6 - 8 kg/sheet" 
-    }
+    specifications: { size: "1220 mm x 2440 mm", thickness: "2 mm - 3 mm", weight: "6 - 8 kg/sheet" }
   },
   {
     id: "3",
@@ -92,13 +72,9 @@ export const products: Product[] = [
     description: "Menghadirkan kemewahan tebing alam dengan pola dramatis dan rona perunggu. Dapat dipasang dengan LED strip/panel menggunakan diffuser akrilik untuk pencahayaan merata. Ideal untuk resepsionis, bar counter, atau backdrop ruangan.",
     shortDescription: "Pola batuan canyon dengan rona perunggu yang mewah dan dramatis.",
     material: "Lapisan Batu Alam + Resin Transparan",
-    features: [officialFeatures.translucent, officialFeatures.lightweight, officialFeatures.easyInstall, officialFeatures.naturalPattern],
+    features: ["Tembus Cahaya (Translucent)", "Ringan & Fleksibel", "Mudah Dipasang", "Pola Alami"],
     category: "luminous-stone",
-    specifications: { 
-      size: "1220 mm x 2440 mm", 
-      thickness: "2 mm - 3 mm", 
-      weight: "6 - 8 kg/sheet" 
-    }
+    specifications: { size: "1220 mm x 2440 mm", thickness: "2 mm - 3 mm", weight: "6 - 8 kg/sheet" }
   },
   {
     id: "4",
@@ -110,13 +86,9 @@ export const products: Product[] = [
     description: "Menangkap esensi elemen bumi yang murni dengan pola fosil alami. Tahan sinar matahari, awet, dan kuat terhadap perubahan cuaca. Cocok untuk aplikasi ceiling, dinding interior/eksterior, dan area komersial.",
     shortDescription: "Visual elemen bumi yang elegan dengan daya tahan tinggi untuk area komersial.",
     material: "Lapisan Batu Alam + Resin Transparan",
-    features: [officialFeatures.sunResistance, officialFeatures.weatherResistant, officialFeatures.stainResistant, officialFeatures.naturalPattern],
+    features: ["Tahan Sinar Matahari", "Tahan Cuaca", "Tahan Noda", "Pola Alami"],
     category: "luminous-stone",
-    specifications: { 
-      size: "1220 mm x 2440 mm", 
-      thickness: "2 mm - 3 mm", 
-      weight: "6 - 8 kg/sheet" 
-    }
+    specifications: { size: "1220 mm x 2440 mm", thickness: "2 mm - 3 mm", weight: "6 - 8 kg/sheet" }
   },
   {
     id: "5",
@@ -128,13 +100,9 @@ export const products: Product[] = [
     description: "Tampilan klasik yang tak lekang oleh waktu dengan corak alami. Material fleksibel yang cocok diaplikasikan pada ceiling, backdrop, countertop, maupun dinding. Ringan sehingga ideal untuk dekorasi plafon.",
     shortDescription: "Tampilan vintage klasik untuk aplikasi backdrop, ceiling, dan countertop.",
     material: "Lapisan Batu Alam + Resin Transparan",
-    features: [officialFeatures.lightweight, officialFeatures.moistureResistant, officialFeatures.easyInstall, officialFeatures.stainResistant],
+    features: ["Ringan & Fleksibel", "Tahan Kelembapan", "Mudah Dipasang", "Tahan Noda"],
     category: "luminous-stone",
-    specifications: {
-      size: "1220 mm x 2440 mm", 
-      thickness: "2 mm - 3 mm", 
-      weight: "6 - 8 kg/sheet" 
-    }
+    specifications: { size: "1220 mm x 2440 mm", thickness: "2 mm - 3 mm", weight: "6 - 8 kg/sheet" }
   }
 ];
 
