@@ -4,6 +4,20 @@ import commercial1 from "@/assets/gallery/commercial-1.jpg";
 import commercial2 from "@/assets/gallery/commercial-2.jpg";
 import resepsionis from "@/assets/gallery/resepsionis.jpeg";
 
+// New gallery images
+import livingRoom from "@/assets/gallery/living room.png";
+import bedroom from "@/assets/gallery/bedroom.png";
+import dinningRoom from "@/assets/gallery/dinning room.png";
+import studyRoom from "@/assets/gallery/study room.png";
+import kitchen from "@/assets/gallery/kitchen1.png";
+import foyerEntrance from "@/assets/gallery/foyer entrance.png";
+import bioskop from "@/assets/gallery/bioskop.png";
+import balkon from "@/assets/gallery/balkon.png";
+import pool from "@/assets/gallery/pool.png";
+import miniBar from "@/assets/gallery/mini bar.png";
+import lobyHotel from "@/assets/gallery/loby hotel.jpg";
+import workspace from "@/assets/gallery/workspcae.png";
+
 export interface GalleryItem {
   id: string;
   image: string;
@@ -21,7 +35,7 @@ export const galleryItems: GalleryItem[] = [
   // =====================
   {
     id: "r1",
-    image: residential1,
+    image: livingRoom,
     title: "Ruang Tamu",
     titleEn: "Living Room",
     description: "Dinding onyx backlit sebagai focal point ruang tamu mewah",
@@ -41,7 +55,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "r3",
-    image: residential1,
+    image: bedroom,
     title: "Kamar Tidur",
     titleEn: "Bedroom",
     description: "Headboard dan dinding aksen dengan efek cahaya yang menenangkan",
@@ -51,7 +65,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "r4",
-    image: residential2,
+    image: dinningRoom,
     title: "Ruang Makan",
     titleEn: "Dining Room",
     description: "Panel dinding luminous menciptakan suasana makan yang elegan",
@@ -61,7 +75,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "r5",
-    image: residential1,
+    image: studyRoom,
     title: "Ruang Kerja",
     titleEn: "Home Office",
     description: "Backdrop luminous untuk ruang kerja yang inspiratif",
@@ -71,7 +85,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "r6",
-    image: residential2,
+    image: kitchen,
     title: "Dapur",
     titleEn: "Kitchen",
     description: "Backsplash dan island dapur dengan efek backlit yang memukau",
@@ -91,7 +105,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "r8",
-    image: residential2,
+    image: foyerEntrance,
     title: "Foyer & Entrance",
     titleEn: "Foyer & Entrance",
     description: "Sambut tamu dengan kesan pertama yang memukau di area foyer",
@@ -121,7 +135,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "r11",
-    image: residential1,
+    image: bioskop,
     title: "Home Theater",
     titleEn: "Home Theater",
     description: "Ruang bioskop pribadi dengan panel dinding yang dramatis",
@@ -131,7 +145,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "r12",
-    image: residential2,
+    image: balkon,
     title: "Balkon & Teras",
     titleEn: "Balcony & Terrace",
     description: "Area outdoor yang menawan dengan panel luminous tahan cuaca",
@@ -141,7 +155,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "r13",
-    image: residential1,
+    image: pool,
     title: "Kolam Renang Pribadi",
     titleEn: "Private Pool",
     description: "Dinding kolam renang rumah dengan efek underwater glow",
@@ -161,7 +175,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "r15",
-    image: residential1,
+    image: miniBar,
     title: "Mini Bar Rumah",
     titleEn: "Home Mini Bar",
     description: "Bar counter pribadi dengan efek backlit yang memikat",
@@ -194,7 +208,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "c3",
-    image: commercial2,
+    image: lobyHotel,
     title: "Lobi Gedung",
     titleEn: "Building Lobby",
     description: "Feature wall pada lobi gedung perkantoran premium",
@@ -344,7 +358,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "c18",
-    image: commercial2,
+    image: workspace,
     title: "Kantor Eksekutif",
     titleEn: "Executive Office",
     description: "Ruang kerja eksekutif dengan panel dinding yang prestisius",
