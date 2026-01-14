@@ -170,11 +170,10 @@ const ProductDetailPage = () => {
             animate={{ opacity: 1, y: 0 }}
             className="lg:col-span-2 space-y-4"
           >
-            {/* Main Image - Smaller & Proportional */}
+            {/* Main Image with Toggle Overlay */}
             <div
-              onClick={() => setIsZoomed(true)}
               className={cn(
-                "relative aspect-[3/4] rounded-xl overflow-hidden card-premium cursor-zoom-in group",
+                "relative aspect-[3/4] rounded-xl overflow-hidden card-premium group",
                 showOn && "glow-border"
               )}
             >
@@ -183,66 +182,51 @@ const ProductDetailPage = () => {
                 src={product.imageOff}
                 alt={`${product.name} - OFF`}
                 className={cn(
-                  "absolute inset-0 w-full h-full object-cover transition-opacity duration-500",
+                  "absolute inset-0 w-full h-full object-cover transition-opacity duration-500 cursor-zoom-in",
                   showOn ? "opacity-0" : "opacity-100"
                 )}
+                onClick={() => setIsZoomed(true)}
               />
               {/* ON Image */}
               <img
                 src={product.imageOn}
                 alt={`${product.name} - ON`}
                 className={cn(
-                  "absolute inset-0 w-full h-full object-cover transition-opacity duration-500",
+                  "absolute inset-0 w-full h-full object-cover transition-opacity duration-500 cursor-zoom-in",
                   showOn ? "opacity-100" : "opacity-0"
                 )}
+                onClick={() => setIsZoomed(true)}
               />
               
-              {/* Status Badge */}
-              <div className={cn(
-                "absolute top-4 right-4 px-3 py-1.5 backdrop-blur rounded-full text-sm font-medium transition-colors duration-300",
-                showOn ? "bg-primary/90 text-primary-foreground" : "bg-background/80 text-foreground"
-              )}>
-                {showOn ? t.hero.on : t.hero.off}
-              </div>
+              {/* Toggle Switch Overlay - Top */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowOn(!showOn);
+                }}
+                className="absolute top-4 right-4 flex items-center gap-2 px-3 py-2 bg-background/80 backdrop-blur-sm rounded-full transition-all duration-300 hover:bg-background/90 z-10"
+              >
+                {showOn ? (
+                  <Lightbulb size={18} className="text-primary" />
+                ) : (
+                  <LightbulbOff size={18} className="text-muted-foreground" />
+                )}
+                {/* Toggle Track */}
+                <div className={cn(
+                  "relative w-10 h-5 rounded-full transition-colors duration-300",
+                  showOn ? "bg-primary" : "bg-muted-foreground/30"
+                )}>
+                  <div className={cn(
+                    "absolute top-0.5 w-4 h-4 rounded-full bg-white shadow-md transition-transform duration-300",
+                    showOn ? "translate-x-5" : "translate-x-0.5"
+                  )} />
+                </div>
+              </button>
               
               {/* Zoom indicator */}
               <div className="absolute bottom-4 right-4 p-2 bg-background/80 backdrop-blur rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
                 <ZoomIn size={18} className="text-foreground" />
               </div>
-            </div>
-
-            {/* Toggle Switch with Lamp Icon */}
-            <div className="flex items-center justify-center">
-              <button
-                onClick={() => setShowOn(!showOn)}
-                className={cn(
-                  "flex items-center gap-3 px-5 py-3 rounded-full transition-all duration-300 border-2",
-                  showOn 
-                    ? "bg-primary/10 border-primary text-primary" 
-                    : "bg-muted border-border text-muted-foreground hover:border-primary/50"
-                )}
-              >
-                {showOn ? (
-                  <Lightbulb size={20} className="text-primary" />
-                ) : (
-                  <LightbulbOff size={20} />
-                )}
-                <span className="font-medium text-sm">
-                  {showOn 
-                    ? (language === "id" ? "Lampu Menyala" : "Light On") 
-                    : (language === "id" ? "Lampu Mati" : "Light Off")}
-                </span>
-                {/* Toggle Track */}
-                <div className={cn(
-                  "relative w-12 h-6 rounded-full transition-colors duration-300",
-                  showOn ? "bg-primary" : "bg-muted-foreground/30"
-                )}>
-                  <div className={cn(
-                    "absolute top-1 w-4 h-4 rounded-full bg-white shadow-md transition-transform duration-300",
-                    showOn ? "translate-x-7" : "translate-x-1"
-                  )} />
-                </div>
-              </button>
             </div>
           </motion.div>
 
