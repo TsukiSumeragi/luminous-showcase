@@ -1,6 +1,9 @@
-import article1 from "@/assets/articles/article-1.jpg";
-import article2 from "@/assets/articles/article-2.jpg";
-import article3 from "@/assets/articles/article-3.jpg";
+import foyerEntrance from "@/assets/articles/foyer entrance.png";
+import livingRoom from "@/assets/articles/living room.png";
+import bedroom from "@/assets/articles/bedroom.png";
+import kitchen from "@/assets/articles/kitchen1.jpg";
+import balkon from "@/assets/articles/balkon.png";
+import lobbyHotel from "@/assets/articles/loby hotel.jpg";
 
 export interface Article {
   id: string;
@@ -87,7 +90,7 @@ Does not easily crack or break and is stain-resistant, making it safer and suita
 ### Natural Appearance
 Made from real natural stone layers, so the patterns become natural, giving a natural appearance impression.
     `,
-    image: article1,
+    image: foyerEntrance,
     date: "2024-12-15",
     tags: ["Material", "Keunggulan", "Produk"],
     tagsEn: ["Material", "Advantages", "Product"],
@@ -151,7 +154,7 @@ Made from real natural stone layers, so the patterns become natural, giving a na
 
 5. Use **covers such as tarp or protective plastic** to protect Luminous Stone sheets from dust/dirt, but ensure there is air circulation to prevent trapped moisture.
     `,
-    image: article2,
+    image: kitchen,
     date: "2024-12-10",
     tags: ["Penanganan", "Penyimpanan", "Panduan"],
     tagsEn: ["Handling", "Storage", "Guide"],
@@ -263,7 +266,7 @@ Made from real natural stone layers, so the patterns become natural, giving a na
 3. Ensure there are no bubbles, gaps, or uneven panels.
 4. Use sealant on edges or corners to prevent dust and water entry.
     `,
-    image: article3,
+    image: balkon,
     date: "2024-12-05",
     tags: ["Pemasangan", "Backlit", "Panduan"],
     tagsEn: ["Installation", "Backlit", "Guide"],
@@ -335,7 +338,7 @@ Luminous Stone can be applied to reception desks, bar tables, or store displays.
 
 This material is practical, just clean it periodically to maintain a natural and elegant appearance.
     `,
-    image: article1,
+    image: lobbyHotel,
     date: "2024-12-01",
     tags: ["Penggunaan", "Pemeliharaan", "Tips"],
     tagsEn: ["Usage", "Maintenance", "Tips"],
@@ -395,7 +398,7 @@ Use Luminous Stone panels as a transparent partition between living and dining r
 - Combine with minimalist furniture for visual balance
 - Add a dimmer for light intensity control
     `,
-    image: article2,
+    image: livingRoom,
     date: "2024-11-28",
     tags: ["Ruang Tamu", "Desain", "Interior"],
     tagsEn: ["Living Room", "Design", "Interior"],
@@ -455,7 +458,7 @@ The backlit effect creates a calm and luxurious atmosphere perfect for relaxatio
 - **Vanity Backdrop** - Behind the sink mirror
 - **Ceiling Panel** - Ceiling with glowing sky effect
     `,
-    image: article3,
+    image: bedroom,
     date: "2024-11-25",
     tags: ["Kamar Mandi", "Spa", "Interior"],
     tagsEn: ["Bathroom", "Spa", "Interior"],
@@ -537,7 +540,7 @@ Eye-catching exterior restaurant walls attract visitors' attention.
 - Instagrammable visual experience
 - High durability reduces renovation costs
     `,
-    image: article1,
+    image: foyerEntrance,
     date: "2024-11-20",
     tags: ["Hotel", "Restoran", "Komersial"],
     tagsEn: ["Hotel", "Restaurant", "Commercial"],
@@ -623,7 +626,7 @@ Luminous Stone is easier to maintain due to its high-quality resin-coated surfac
 
 Luminous Stone is a smart choice for those who want the beauty of onyx without the complexity and high cost of natural materials.
     `,
-    image: article2,
+    image: lobbyHotel,
     date: "2024-11-15",
     tags: ["Perbandingan", "Onyx", "Material"],
     tagsEn: ["Comparison", "Onyx", "Material"],
@@ -697,7 +700,7 @@ Luminous Stone achieves its maximum beauty when backlit. Here are tips for choos
 3. Install dimmer for intensity control
 4. Use glossy white HPL as reflector
     `,
-    image: article3,
+    image: kitchen,
     date: "2024-11-10",
     tags: ["Pencahayaan", "LED", "Tips"],
     tagsEn: ["Lighting", "LED", "Tips"],
@@ -773,7 +776,7 @@ Doesn't absorb moisture, preventing mold growth.
 - Protect joints from water infiltration
 - Use outdoor-rated LED for backlit
     `,
-    image: article1,
+    image: balkon,
     date: "2024-11-05",
     tags: ["Eksterior", "Fasad", "Outdoor"],
     tagsEn: ["Exterior", "Facade", "Outdoor"],
@@ -849,7 +852,7 @@ Replaces conventional lights with soft and even ambient lighting.
 3. Consider heat dissipation
 4. Use acrylic panels as diffuser
     `,
-    image: article2,
+    image: bedroom,
     date: "2024-10-30",
     tags: ["Ceiling", "Plafon", "Interior"],
     tagsEn: ["Ceiling", "Plafond", "Interior"],
@@ -933,7 +936,7 @@ Although Luminous Stone installation is relatively easy, there are common mistak
 **Problem:** Uneven light or quick failure
 **Solution:** Use quality LED strip/panel with warranty
     `,
-    image: article3,
+    image: livingRoom,
     date: "2024-10-25",
     tags: ["Instalasi", "Tips", "Kesalahan"],
     tagsEn: ["Installation", "Tips", "Mistakes"],
