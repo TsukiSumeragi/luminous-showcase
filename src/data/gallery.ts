@@ -3,6 +3,7 @@ import bedroom from "@/assets/gallery/bedroom.png";
 import diningRoom from "@/assets/gallery/dining-room.png";
 import kitchen from "@/assets/gallery/kitchen1.jpg";
 import pool from "@/assets/gallery/pool.png";
+import balkonExterior from "@/assets/gallery/balkon-exterior.png";
 import lobbyHotel from "@/assets/gallery/lobby-hotel.jpg";
 import bioskop from "@/assets/gallery/bioskop.png";
 import workspace from "@/assets/gallery/workspace.png";
@@ -64,6 +65,15 @@ export const galleryItems: GalleryItem[] = [
     titleEn: "Swimming Pool",
     description: "Dinding kolam renang yang estetis dan tahan terhadap kelembapan.",
     descriptionEn: "Aesthetic pool walls resistant to moisture.",
+    category: "residential",
+  },
+  {
+    id: "r6",
+    image: balkonExterior,
+    title: "Balkon Eksterior",
+    titleEn: "Exterior Balcony",
+    description: "Panel dinding eksterior balkon dengan efek backlit yang memukau di malam hari.",
+    descriptionEn: "Exterior balcony wall panel with stunning backlit effect at night.",
     category: "residential",
   },
   // Commercial
