@@ -198,30 +198,42 @@ const ProductDetailPage = () => {
                 onClick={() => setIsZoomed(true)}
               />
               
-              {/* Toggle Switch Overlay - Top */}
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setShowOn(!showOn);
-                }}
-                className="absolute top-4 right-4 flex items-center gap-2 px-3 py-2 bg-background/80 backdrop-blur-sm rounded-full transition-all duration-300 hover:bg-background/90 z-10"
-              >
-                {showOn ? (
-                  <Lightbulb size={18} className="text-primary" />
-                ) : (
-                  <LightbulbOff size={18} className="text-muted-foreground" />
-                )}
-                {/* Toggle Track */}
-                <div className={cn(
-                  "relative w-10 h-5 rounded-full transition-colors duration-300",
-                  showOn ? "bg-primary" : "bg-muted-foreground/30"
-                )}>
-                  <div className={cn(
-                    "absolute top-0.5 w-4 h-4 rounded-full bg-white shadow-md transition-transform duration-300",
-                    showOn ? "translate-x-5" : "translate-x-0.5"
-                  )} />
-                </div>
-              </button>
+              {/* Navigation Arrows - Left (OFF) & Right (ON) */}
+              <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between pointer-events-none z-10 px-3">
+                {/* Left Arrow - OFF (visible when ON) */}
+                <motion.button
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ 
+                    opacity: showOn ? 1 : 0, 
+                    x: showOn ? 0 : -20, 
+                    pointerEvents: showOn ? "auto" : "none" 
+                  }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowOn(false);
+                  }}
+                  className="w-12 h-12 flex items-center justify-center rounded-full bg-black/60 border border-white/10 backdrop-blur-md hover:bg-primary hover:text-primary-foreground transition-all pointer-events-auto"
+                >
+                  <LightbulbOff className="w-6 h-6 text-white" />
+                </motion.button>
+
+                {/* Right Arrow - ON (visible when OFF) */}
+                <motion.button
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ 
+                    opacity: !showOn ? 1 : 0, 
+                    x: !showOn ? 0 : 20, 
+                    pointerEvents: !showOn ? "auto" : "none" 
+                  }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowOn(true);
+                  }}
+                  className="w-12 h-12 flex items-center justify-center rounded-full bg-black/60 border border-white/10 backdrop-blur-md hover:bg-primary hover:text-primary-foreground transition-all pointer-events-auto"
+                >
+                  <Lightbulb className="w-6 h-6 text-primary" />
+                </motion.button>
+              </div>
               
               {/* Zoom indicator */}
               <div className="absolute bottom-4 right-4 p-2 bg-background/80 backdrop-blur rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
