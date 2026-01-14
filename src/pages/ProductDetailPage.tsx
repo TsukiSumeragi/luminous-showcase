@@ -246,8 +246,24 @@ const ProductDetailPage = () => {
                 }
               />
 
+              {/* Bulb Icon Indicator - Top Right (Not a button) */}
+              <div
+                className={cn(
+                  "absolute top-4 right-4 z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 pointer-events-none",
+                  showOn
+                    ? "bg-primary/90 text-primary-foreground shadow-lg shadow-primary/50"
+                    : "bg-black/50 text-white/60"
+                )}
+              >
+                {showOn ? (
+                  <Lightbulb className="w-7 h-7" />
+                ) : (
+                  <LightbulbOff className="w-7 h-7" />
+                )}
+              </div>
+
               {/* Navigation Arrows Left & Right - Like Hero Slider */}
-              <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between pointer-events-none z-20 px-3">
+              <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between pointer-events-none z-10 px-3">
                 {/* Left Arrow - OFF (visible when ON) */}
                 <motion.button
                   initial={{ opacity: 0, x: -20 }}
@@ -284,7 +300,7 @@ const ProductDetailPage = () => {
               </div>
 
               {/* Zoom indicator */}
-              <div className="absolute bottom-3 right-3 px-2 py-1 bg-background/80 backdrop-blur rounded-md text-xs text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+              <div className="absolute bottom-3 left-3 px-2 py-1 bg-background/80 backdrop-blur rounded-md text-xs text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
                 <ZoomIn size={14} />
                 <span>{language === "id" ? "Klik untuk zoom" : "Click to zoom"}</span>
               </div>
@@ -304,7 +320,7 @@ const ProductDetailPage = () => {
                 {product.name}
               </h1>
               <p className="text-muted-foreground leading-relaxed text-sm">
-                {product.description}
+                {language === "id" ? product.description : product.descriptionEn}
               </p>
             </div>
 
@@ -324,7 +340,7 @@ const ProductDetailPage = () => {
               </div>
               <div className="card-premium p-3">
                 <p className="text-xs text-muted-foreground mb-0.5">{t.common.material}</p>
-                <p className="font-medium text-sm">{product.material}</p>
+                <p className="font-medium text-sm">{language === "id" ? product.material : product.materialEn}</p>
               </div>
             </div>
 
@@ -332,9 +348,9 @@ const ProductDetailPage = () => {
             <div>
               <p className="text-xs text-muted-foreground mb-2">{t.common.features}:</p>
               <div className="flex flex-wrap gap-1.5">
-                {product.features.map((feature) => (
+                {(language === "id" ? product.features : product.featuresEn).map((feature, index) => (
                   <span
-                    key={feature}
+                    key={index}
                     className="px-2.5 py-1 bg-muted rounded-full text-xs"
                   >
                     {feature}
@@ -409,14 +425,13 @@ const ProductDetailPage = () => {
                 </button>
               </div>
 
-              {/* Toggle ON/OFF - Large Bulb Icon */}
-              <button
-                onClick={() => setShowOn(!showOn)}
+              {/* Bulb Icon Indicator */}
+              <div
                 className={cn(
-                  "w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg",
+                  "w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300",
                   showOn
-                    ? "bg-primary text-primary-foreground shadow-primary/50"
-                    : "bg-white/10 text-white/70 hover:bg-white/20"
+                    ? "bg-primary text-primary-foreground shadow-lg shadow-primary/50"
+                    : "bg-white/10 text-white/60"
                 )}
               >
                 {showOn ? (
@@ -424,7 +439,7 @@ const ProductDetailPage = () => {
                 ) : (
                   <LightbulbOff className="w-6 h-6" />
                 )}
-              </button>
+              </div>
 
               {/* Close Button */}
               <button
@@ -433,6 +448,43 @@ const ProductDetailPage = () => {
               >
                 <X size={20} className="text-white" />
               </button>
+            </div>
+
+            {/* Navigation Arrows in Modal - Like Hero Slider */}
+            <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between pointer-events-none z-10 px-4" style={{ top: '60px' }}>
+              {/* Left Arrow - OFF (visible when ON) */}
+              <motion.button
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ 
+                  opacity: showOn ? 1 : 0, 
+                  x: showOn ? 0 : -20, 
+                  pointerEvents: showOn ? "auto" : "none" 
+                }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowOn(false);
+                }}
+                className="w-12 h-12 flex items-center justify-center rounded-full bg-black/60 border border-white/10 text-white backdrop-blur-md hover:bg-primary hover:text-primary-foreground transition-all pointer-events-auto"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </motion.button>
+
+              {/* Right Arrow - ON (visible when OFF) */}
+              <motion.button
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ 
+                  opacity: !showOn ? 1 : 0, 
+                  x: !showOn ? 0 : 20, 
+                  pointerEvents: !showOn ? "auto" : "none" 
+                }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowOn(true);
+                }}
+                className="w-12 h-12 flex items-center justify-center rounded-full bg-black/60 border border-white/10 text-primary backdrop-blur-md hover:bg-primary hover:text-primary-foreground transition-all pointer-events-auto"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </motion.button>
             </div>
 
             {/* Zoomable Image Area */}
