@@ -1,6 +1,6 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, MessageCircle, ZoomIn, ZoomOut, X, RotateCcw, Lightbulb, LightbulbOff } from "lucide-react";
+import { ArrowLeft, MessageCircle, ZoomIn, ZoomOut, X, RotateCcw, Lightbulb, LightbulbOff, ChevronLeft, ChevronRight } from "lucide-react";
 import { getProductByCode } from "@/data/products";
 import { OtherProducts } from "@/components/ProductCard";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -246,25 +246,42 @@ const ProductDetailPage = () => {
                 }
               />
 
-              {/* Bulb Toggle Switch - Top Right */}
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setShowOn(!showOn);
-                }}
-                className={cn(
-                  "absolute top-4 right-4 z-20 w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg",
-                  showOn
-                    ? "bg-primary text-primary-foreground shadow-primary/40"
-                    : "bg-black/70 text-white/80 hover:bg-black/80"
-                )}
-              >
-                {showOn ? (
-                  <Lightbulb className="w-8 h-8" />
-                ) : (
-                  <LightbulbOff className="w-8 h-8" />
-                )}
-              </button>
+              {/* Navigation Arrows Left & Right - Like Hero Slider */}
+              <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between pointer-events-none z-20 px-3">
+                {/* Left Arrow - OFF (visible when ON) */}
+                <motion.button
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ 
+                    opacity: showOn ? 1 : 0, 
+                    x: showOn ? 0 : -20, 
+                    pointerEvents: showOn ? "auto" : "none" 
+                  }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowOn(false);
+                  }}
+                  className="w-11 h-11 flex items-center justify-center rounded-full bg-black/60 border border-white/10 text-white backdrop-blur-md hover:bg-primary hover:text-primary-foreground transition-all pointer-events-auto"
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </motion.button>
+
+                {/* Right Arrow - ON (visible when OFF) */}
+                <motion.button
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ 
+                    opacity: !showOn ? 1 : 0, 
+                    x: !showOn ? 0 : 20, 
+                    pointerEvents: !showOn ? "auto" : "none" 
+                  }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowOn(true);
+                  }}
+                  className="w-11 h-11 flex items-center justify-center rounded-full bg-black/60 border border-white/10 text-primary backdrop-blur-md hover:bg-primary hover:text-primary-foreground transition-all pointer-events-auto"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </motion.button>
+              </div>
 
               {/* Zoom indicator */}
               <div className="absolute bottom-3 right-3 px-2 py-1 bg-background/80 backdrop-blur rounded-md text-xs text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
