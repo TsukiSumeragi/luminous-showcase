@@ -20,7 +20,7 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
         <div className="card-premium overflow-hidden">
           <div className="relative aspect-[3/4] image-hover">
             <img
-              src={product.imageOff}
+              src={product.imageOn}
               alt={product.name}
               className="w-full h-full object-cover"
             />
@@ -71,7 +71,7 @@ export const OtherProducts = ({ currentProductId }: OtherProductsProps) => {
           >
             <div className="aspect-[3/4] image-hover">
               <img
-                src={product.imageOff}
+                src={product.imageOn}
                 alt={product.name}
                 className="w-full h-full object-cover"
               />
