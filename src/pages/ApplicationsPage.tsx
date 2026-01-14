@@ -18,10 +18,10 @@ const ApplicationsPage = () => {
           className="text-center mb-16"
         >
           <h1 className="font-display text-4xl md:text-5xl font-medium mb-4">
-            {t.nav.applications}
+            {t.applications.title}
           </h1>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Inspirasi pengaplikasian batu luminous dalam berbagai setting interior
+            {t.applications.subtitle}
           </p>
         </motion.div>
 
@@ -45,7 +45,7 @@ const ApplicationsPage = () => {
                     {t.nav.residential}
                   </h2>
                   <p className="text-muted-foreground">
-                    Ruang tamu, kamar mandi, dan area pribadi
+                    {t.applications.residentialDesc}
                   </p>
                 </div>
               </div>
@@ -70,7 +70,7 @@ const ApplicationsPage = () => {
                     {t.nav.commercial}
                   </h2>
                   <p className="text-muted-foreground">
-                    Hotel, restoran, dan ruang bisnis
+                    {t.applications.commercialDesc}
                   </p>
                 </div>
               </div>
