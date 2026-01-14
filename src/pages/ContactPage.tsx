@@ -118,7 +118,7 @@ const ContactPage = () => {
           >
             <div className="card-premium overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.7438851089783!2d106.50095!3d-6.28560!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e42069d6f9a8a8f%3A0x8c5d12e8a7c5d5f0!2sPT%20Frantinco%20Indah%20Makmur%20(HPL)!5e0!3m2!1sen!2sid!4v1704000000000!5m2!1sen!2sid"
+                src="https://maps.google.com/maps?q=PT+Frantinco+Indah+Makmur+HPL+Tangerang&t=&z=17&ie=UTF8&iwloc=B&output=embed"
                 width="100%"
                 height="400"
                 style={{ border: 0 }}
