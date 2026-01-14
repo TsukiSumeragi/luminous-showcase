@@ -18,11 +18,20 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
     >
       <Link to={`/produk/${product.code}`} className="group block">
         <div className="card-premium overflow-hidden">
-          <div className="relative aspect-[3/4] image-hover">
+          <div className="relative aspect-[3/4] image-hover overflow-hidden">
+            {/* Default: OFF (Natural) */}
+            <img
+              src={product.imageOff}
+              alt={`${product.name} - OFF`}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-100 group-hover:opacity-0"
+            />
+            {/* Hover: ON (Backlit) */}
             <img
               src={product.imageOn}
-              alt={product.name}
-              className="w-full h-full object-cover"
+              alt={`${product.name} - ON`}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 group-hover:opacity-100"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
           </div>
@@ -69,11 +78,18 @@ export const OtherProducts = ({ currentProductId }: OtherProductsProps) => {
             to={`/produk/${product.code}`}
             className="group card-premium overflow-hidden"
           >
-            <div className="aspect-[3/4] image-hover">
+            <div className="aspect-[3/4] image-hover overflow-hidden relative">
+              <img
+                src={product.imageOff}
+                alt={`${product.name} - OFF`}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-100 group-hover:opacity-0"
+              />
               <img
                 src={product.imageOn}
-                alt={product.name}
-                className="w-full h-full object-cover"
+                alt={`${product.name} - ON`}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 group-hover:opacity-100"
               />
             </div>
             <div className="p-3">
