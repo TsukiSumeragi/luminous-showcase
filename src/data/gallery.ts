@@ -1,4 +1,3 @@
-// Gallery images
 import livingRoom from "@/assets/gallery/living-room.png";
 import bedroom from "@/assets/gallery/bedroom.png";
 import diningRoom from "@/assets/gallery/dining-room.png";

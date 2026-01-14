@@ -1,7 +1,5 @@
-import PENGAPLIKASIAN_1 from "@/assets/PENGAPLIKASIAN/PENGAPLIKASIAN (1).webp";
-import PENGAPLIKASIAN_1_1 from "@/assets/PENGAPLIKASIAN/PENGAPLIKASIAN (1) (1).webp";
-import PENGAPLIKASIAN_2 from "@/assets/PENGAPLIKASIAN/PENGAPLIKASIAN (2).webp";
-import PENGAPLIKASIAN_2_1 from "@/assets/PENGAPLIKASIAN/PENGAPLIKASIAN (2) (1).webp";
+import residentialImage from "@/assets/gallery/living-room.png";
+import commercialImage from "@/assets/gallery/lobby-hotel.jpg";
 
 import FLS_1001_OFF from "@/assets/products/FLS-1001 SUNSET STONE-OFF.webp";
 import FLS_1001_ON from "@/assets/products/FLS-1001 SUNSET STONE-ON.webp";
@@ -106,13 +104,13 @@ export const products: Product[] = [
   }
 ];
 
-export const articles = [
+export const applicationCategories = [
   {
     id: "1",
     title: "Residensial",
     subtitle: "Aplikasi Hunian",
     description: "Ciptakan suasana hangat dan elegan di rumah Anda dengan Luminous Stone. Cocok untuk dinding aksen, backdrop TV, atau area kamar mandi.",
-    image: PENGAPLIKASIAN_1,
+    image: residentialImage,
     category: "Residential"
   },
   {
@@ -120,16 +118,9 @@ export const articles = [
     title: "Komersial",
     subtitle: "Aplikasi Bisnis",
     description: "Tingkatkan kesan premium pada ruang komersial Anda. Ideal untuk lobby hotel, meja resepsionis, bar counter, dan restoran.",
-    image: PENGAPLIKASIAN_2,
+    image: commercialImage,
     category: "Commercial"
   }
-];
-
-export const applicationImages = [
-  { id: "1", src: PENGAPLIKASIAN_1, alt: "Residential 1", category: "residential" },
-  { id: "2", src: PENGAPLIKASIAN_1_1, alt: "Residential 2", category: "residential" },
-  { id: "3", src: PENGAPLIKASIAN_2, alt: "Commercial 1", category: "commercial" },
-  { id: "4", src: PENGAPLIKASIAN_2_1, alt: "Commercial 2", category: "commercial" }
 ];
 
 export const getProductByCode = (code: string) => products.find(p => p.code === code);

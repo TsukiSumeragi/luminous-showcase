@@ -605,9 +605,9 @@ Many ask, what's the difference between Luminous Stone and natural onyx? Here's 
 ### Installation
 
 **Natural Onyx:**
-- Requires special support structure
+- Requires special supporting structure
 - Longer installation process
-- High risk of cracking during transport
+- High risk of cracking during transportation
 
 **Luminous Stone:**
 - Can be installed on regular walls
@@ -616,7 +616,7 @@ Many ask, what's the difference between Luminous Stone and natural onyx? Here's 
 
 ### Price
 
-Luminous Stone offers a similar appearance at a much more affordable price compared to natural onyx.
+Luminous Stone offers a similar look at a much more affordable price compared to natural onyx.
 
 ### Maintenance
 
@@ -638,67 +638,83 @@ Luminous Stone is a smart choice for those who want the beauty of onyx without t
     slug: "ide-pencahayaan-untuk-luminous-stone",
     title: "Ide Pencahayaan untuk Luminous Stone: Memaksimalkan Efek Backlit",
     titleEn: "Lighting Ideas for Luminous Stone: Maximizing the Backlit Effect",
-    excerpt: "Panduan memilih dan mengatur pencahayaan LED untuk hasil backlit Luminous Stone yang optimal.",
-    excerptEn: "Guide to choosing and setting up LED lighting for optimal Luminous Stone backlit results.",
+    excerpt: "Tips memilih dan memasang LED untuk menghasilkan efek backlit terbaik pada Luminous Stone.",
+    excerptEn: "Tips for choosing and installing LED to produce the best backlit effect on Luminous Stone.",
     content: `
-## Pentingnya Pencahayaan yang Tepat
+## Memilih Pencahayaan yang Tepat
 
-Luminous Stone mencapai keindahan maksimalnya saat diberi pencahayaan dari belakang. Berikut tips memilih sistem pencahayaan yang tepat:
+Pencahayaan adalah kunci untuk memaksimalkan keindahan Luminous Stone. Berikut panduan lengkapnya:
 
-### Jenis LED yang Direkomendasikan
+### Jenis LED
 
 **LED Strip**
-- Fleksibel untuk area dengan kontur
-- Tersedia berbagai warna temperatur
-- Mudah dipotong sesuai ukuran
+- Fleksibel dan mudah dipasang
+- Ideal untuk area dengan bentuk tidak beraturan
+- Tersedia dalam berbagai warna suhu
 
 **LED Panel**
-- Pencahayaan lebih merata
+- Cahaya lebih merata
 - Cocok untuk area luas
-- Umur pakai lebih lama
+- Konsumsi energi lebih efisien
 
-### Temperatur Warna
+### Warna Suhu LED
 
-- **Warm White (2700-3000K):** Suasana hangat, cocok untuk residential
-- **Natural White (4000K):** Keseimbangan, cocok untuk showroom
-- **Cool White (6000K):** Kesan modern, cocok untuk komersial
+| Suhu | Kesan | Rekomendasi |
+|------|-------|-------------|
+| Warm White (2700-3000K) | Hangat, cozy | Kamar tidur, ruang tamu |
+| Natural White (4000K) | Natural, segar | Dapur, kantor |
+| Cool White (5000-6500K) | Bersih, modern | Kamar mandi, area komersial |
 
-### Tips Instalasi Lighting
+### Tips Instalasi
 
-1. Gunakan diffuser akrilik untuk cahaya merata
-2. Jaga jarak 4-8 cm antara LED dan panel stone
-3. Pasang dimmer untuk kontrol intensitas
-4. Gunakan HPL putih glossy sebagai reflektor
+1. **Jarak LED ke Panel**: Pertahankan jarak 4-8 cm untuk cahaya merata
+2. **Gunakan Diffuser**: Akrilik susu/opal untuk menghilangkan hotspot
+3. **Dimmer**: Pasang dimmer untuk mengatur intensitas sesuai suasana
+4. **LED Berkualitas**: Pilih LED dengan CRI tinggi (>90) untuk warna akurat
+
+### Efek Kreatif
+
+- **RGB LED** untuk perubahan warna dinamis
+- **Smart LED** yang bisa dikontrol via smartphone
+- **Kombinasi** warm dan cool white untuk variasi
     `,
     contentEn: `
-## The Importance of Proper Lighting
+## Choosing the Right Lighting
 
-Luminous Stone achieves its maximum beauty when backlit. Here are tips for choosing the right lighting system:
+Lighting is key to maximizing the beauty of Luminous Stone. Here's a complete guide:
 
-### Recommended LED Types
+### LED Types
 
 **LED Strip**
-- Flexible for contoured areas
+- Flexible and easy to install
+- Ideal for irregularly shaped areas
 - Available in various color temperatures
-- Easy to cut to size
 
 **LED Panel**
-- More even lighting
+- More even light distribution
 - Suitable for large areas
-- Longer lifespan
+- More energy efficient
 
-### Color Temperature
+### LED Color Temperature
 
-- **Warm White (2700-3000K):** Warm atmosphere, suitable for residential
-- **Natural White (4000K):** Balance, suitable for showrooms
-- **Cool White (6000K):** Modern impression, suitable for commercial
+| Temperature | Impression | Recommendation |
+|-------------|------------|----------------|
+| Warm White (2700-3000K) | Warm, cozy | Bedroom, living room |
+| Natural White (4000K) | Natural, fresh | Kitchen, office |
+| Cool White (5000-6500K) | Clean, modern | Bathroom, commercial areas |
 
-### Lighting Installation Tips
+### Installation Tips
 
-1. Use acrylic diffuser for even light
-2. Maintain 4-8 cm distance between LED and stone panel
-3. Install dimmer for intensity control
-4. Use glossy white HPL as reflector
+1. **LED to Panel Distance**: Maintain 4-8 cm distance for even light
+2. **Use Diffuser**: Milky/opal acrylic to eliminate hotspots
+3. **Dimmer**: Install dimmer to adjust intensity according to mood
+4. **Quality LED**: Choose LED with high CRI (>90) for accurate colors
+
+### Creative Effects
+
+- **RGB LED** for dynamic color changes
+- **Smart LED** controllable via smartphone
+- **Combination** of warm and cool white for variation
     `,
     image: kitchen,
     date: "2024-11-10",
