@@ -18,7 +18,7 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
     >
       <Link to={`/produk/${product.code}`} className="group block">
         <div className="card-premium overflow-hidden">
-          <div className="relative aspect-square image-hover">
+          <div className="relative aspect-[3/4] image-hover">
             <img
               src={product.imageOn}
               alt={product.name}
@@ -69,7 +69,7 @@ export const OtherProducts = ({ currentProductId }: OtherProductsProps) => {
             to={`/produk/${product.code}`}
             className="group card-premium overflow-hidden"
           >
-            <div className="aspect-square image-hover">
+            <div className="aspect-[3/4] image-hover">
               <img
                 src={product.imageOn}
                 alt={product.name}
