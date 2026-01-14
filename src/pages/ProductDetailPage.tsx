@@ -163,77 +163,95 @@ const ProductDetailPage = () => {
           </button>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          {/* Images - OFF/ON Comparison with Zoom */}
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 mb-16">
+          {/* Single Image with Toggle - Takes 2 columns */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="space-y-4"
+            className="lg:col-span-2 space-y-4"
           >
+            {/* Main Image - Smaller & Proportional */}
             <div
               onClick={() => setIsZoomed(true)}
               className={cn(
-                "relative aspect-square rounded-lg overflow-hidden card-premium cursor-zoom-in group",
+                "relative aspect-[3/4] rounded-xl overflow-hidden card-premium cursor-zoom-in group",
                 showOn && "glow-border"
               )}
             >
+              {/* OFF Image */}
               <img
-                src={currentImage}
-                alt={product.name}
-                className="w-full h-full object-cover transition-all duration-500"
+                src={product.imageOff}
+                alt={`${product.name} - OFF`}
+                className={cn(
+                  "absolute inset-0 w-full h-full object-cover transition-opacity duration-500",
+                  showOn ? "opacity-0" : "opacity-100"
+                )}
               />
-              <div className="absolute top-4 right-4 px-3 py-1 bg-background/80 backdrop-blur rounded-full text-sm font-medium">
+              {/* ON Image */}
+              <img
+                src={product.imageOn}
+                alt={`${product.name} - ON`}
+                className={cn(
+                  "absolute inset-0 w-full h-full object-cover transition-opacity duration-500",
+                  showOn ? "opacity-100" : "opacity-0"
+                )}
+              />
+              
+              {/* Status Badge */}
+              <div className={cn(
+                "absolute top-4 right-4 px-3 py-1.5 backdrop-blur rounded-full text-sm font-medium transition-colors duration-300",
+                showOn ? "bg-primary/90 text-primary-foreground" : "bg-background/80 text-foreground"
+              )}>
                 {showOn ? t.hero.on : t.hero.off}
               </div>
+              
               {/* Zoom indicator */}
               <div className="absolute bottom-4 right-4 p-2 bg-background/80 backdrop-blur rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
-                <ZoomIn size={20} className="text-foreground" />
+                <ZoomIn size={18} className="text-foreground" />
               </div>
             </div>
 
-            {/* Toggle */}
-            <div className="flex gap-4">
+            {/* Toggle Switch with Lamp Icon */}
+            <div className="flex items-center justify-center">
               <button
-                onClick={() => setShowOn(false)}
+                onClick={() => setShowOn(!showOn)}
                 className={cn(
-                  "flex-1 aspect-video rounded-lg overflow-hidden border-2 transition-colors relative",
-                  !showOn ? "border-primary" : "border-transparent opacity-60"
+                  "flex items-center gap-3 px-5 py-3 rounded-full transition-all duration-300 border-2",
+                  showOn 
+                    ? "bg-primary/10 border-primary text-primary" 
+                    : "bg-muted border-border text-muted-foreground hover:border-primary/50"
                 )}
               >
-                <img
-                  src={product.imageOff}
-                  alt={t.hero.off}
-                  className="w-full h-full object-cover"
-                />
-                <span className="absolute bottom-2 left-2 text-xs bg-background/80 backdrop-blur px-2 py-0.5 rounded">
-                  {t.hero.off}
-                </span>
-              </button>
-              <button
-                onClick={() => setShowOn(true)}
-                className={cn(
-                  "flex-1 aspect-video rounded-lg overflow-hidden border-2 transition-colors relative",
-                  showOn ? "border-primary" : "border-transparent opacity-60"
+                {showOn ? (
+                  <Lightbulb size={20} className="text-primary" />
+                ) : (
+                  <LightbulbOff size={20} />
                 )}
-              >
-                <img
-                  src={product.imageOn}
-                  alt={t.hero.on}
-                  className="w-full h-full object-cover"
-                />
-                <span className="absolute bottom-2 left-2 text-xs bg-background/80 backdrop-blur px-2 py-0.5 rounded">
-                  {t.hero.on}
+                <span className="font-medium text-sm">
+                  {showOn 
+                    ? (language === "id" ? "Lampu Menyala" : "Light On") 
+                    : (language === "id" ? "Lampu Mati" : "Light Off")}
                 </span>
+                {/* Toggle Track */}
+                <div className={cn(
+                  "relative w-12 h-6 rounded-full transition-colors duration-300",
+                  showOn ? "bg-primary" : "bg-muted-foreground/30"
+                )}>
+                  <div className={cn(
+                    "absolute top-1 w-4 h-4 rounded-full bg-white shadow-md transition-transform duration-300",
+                    showOn ? "translate-x-7" : "translate-x-1"
+                  )} />
+                </div>
               </button>
             </div>
           </motion.div>
 
-          {/* Product Info */}
+          {/* Product Info - Takes 3 columns */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="space-y-6"
+            className="lg:col-span-3 space-y-6"
           >
             <div>
               <p className="text-primary font-medium mb-2">{product.code}</p>
