@@ -1,16 +1,16 @@
 import residentialImage from "@/assets/gallery/living-room.png";
 import commercialImage from "@/assets/gallery/lobby-hotel.jpg";
 
-import FLS_1001_OFF from "@/assets/products/1001.jpg";
-import FLS_1001_ON from "@/assets/products/1001 SUNSET STONE.jpg";
-import FLS_1002_OFF from "@/assets/products/1002.jpg";
-import FLS_1002_ON from "@/assets/products/1002 RUSTIC GREY.jpg";
-import FLS_1003_OFF from "@/assets/products/1003.jpg";
-import FLS_1003_ON from "@/assets/products/1003 BRONZE CANYON.jpg";
-import FLS_1004_OFF from "@/assets/products/1004.jpg";
-import FLS_1004_ON from "@/assets/products/1004 EARTH FOSSIL.jpg";
-import FLS_1005_OFF from "@/assets/products/1005.jpg";
-import FLS_1005_ON from "@/assets/products/1005 SAVANA VINTAGE.jpg";
+import FLS_1001_ON from "@/assets/products/1001.jpg";
+import FLS_1001_OFF from "@/assets/products/1001 SUNSET STONE.jpg";
+import FLS_1002_ON from "@/assets/products/1002.jpg";
+import FLS_1002_OFF from "@/assets/products/1002 RUSTIC GREY.jpg";
+import FLS_1003_ON from "@/assets/products/1003.jpg";
+import FLS_1003_OFF from "@/assets/products/1003 BRONZE CANYON.jpg";
+import FLS_1004_ON from "@/assets/products/1004.jpg";
+import FLS_1004_OFF from "@/assets/products/1004 EARTH FOSSIL.jpg";
+import FLS_1005_ON from "@/assets/products/1005.jpg";
+import FLS_1005_OFF from "@/assets/products/1005 SAVANA VINTAGE.jpg";
 
 export interface Product {
   id: string;
