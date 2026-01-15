@@ -108,13 +108,16 @@ const ArticleDetailPage = () => {
             {/* Content */}
             <div className="prose prose-invert prose-lg max-w-none">
               {content.split("\n").map((paragraph, index) => {
+                // Remove ** markdown bold syntax
+                const cleanText = (text: string) => text.replace(/\*\*/g, "");
+                
                 if (paragraph.startsWith("## ")) {
                   return (
                     <h2
                       key={index}
                       className="font-display text-2xl font-medium mt-8 mb-4 text-foreground"
                     >
-                      {paragraph.replace("## ", "")}
+                      {cleanText(paragraph.replace("## ", ""))}
                     </h2>
                   );
                 }
@@ -124,28 +127,28 @@ const ArticleDetailPage = () => {
                       key={index}
                       className="font-display text-xl font-medium mt-6 mb-3 text-foreground"
                     >
-                      {paragraph.replace("### ", "")}
+                      {cleanText(paragraph.replace("### ", ""))}
                     </h3>
                   );
                 }
                 if (paragraph.startsWith("- ")) {
                   return (
                     <li key={index} className="text-muted-foreground ml-4">
-                      {paragraph.replace("- ", "")}
+                      {cleanText(paragraph.replace("- ", ""))}
                     </li>
                   );
                 }
                 if (paragraph.match(/^\d+\./)) {
                   return (
                     <p key={index} className="text-muted-foreground mb-2 leading-relaxed">
-                      {paragraph}
+                      {cleanText(paragraph)}
                     </p>
                   );
                 }
                 if (paragraph.trim()) {
                   return (
                     <p key={index} className="text-muted-foreground mb-4 leading-relaxed">
-                      {paragraph}
+                      {cleanText(paragraph)}
                     </p>
                   );
                 }
