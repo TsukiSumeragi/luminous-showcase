@@ -60,13 +60,13 @@ const ApplicationGalleryPage = () => {
                 <div className="relative aspect-[4/3] image-hover">
                   <img
                     src={item.image}
-                    alt={language === "id" ? item.title : item.titleEn}
+                    alt={item.titleEn}
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="p-5">
                   <h3 className="font-display text-lg font-medium mb-2">
-                    {language === "id" ? item.title : item.titleEn}
+                    {item.titleEn}
                   </h3>
                   <p className="text-sm text-muted-foreground">
                     {language === "id" ? item.description : item.descriptionEn}
