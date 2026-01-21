@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import BottomNav from "./components/BottomNav";
 import Footer from "./components/Footer";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
+import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import ProductsPage from "./pages/ProductsPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
@@ -27,6 +28,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <div className="min-h-screen flex flex-col">
             <Navbar />
             <div className="flex-1">
