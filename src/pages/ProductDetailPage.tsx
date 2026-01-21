@@ -27,6 +27,12 @@ const ProductDetailPage = () => {
 
   const product = getProductByCode(code || "");
 
+  // Scroll to top when product changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setShowOn(false); // Reset to OFF state
+  }, [code]);
+
   // Reset zoom when modal closes
   useEffect(() => {
     if (!isModalOpen) {
