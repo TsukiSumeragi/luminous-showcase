@@ -167,7 +167,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between">
             {/* Mobile Logo */}
             <Link to="/">
-              <img src="/logo.webp" alt="Luminous Stone" className="h-12 w-auto" />
+              <img src="/logo.webp" alt="Luminous Stone" className="h-16 w-auto" />
             </Link>
 
             {/* Language Switcher */}
