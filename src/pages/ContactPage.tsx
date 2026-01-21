@@ -30,7 +30,8 @@ const ContactPage = () => {
       title: t.contact.workingHours,
       content: [
         language === "id" ? "Senin - Jumat: 08:30 - 16:30" : "Monday - Friday: 08:30 - 16:30",
-        language === "id" ? "Sabtu, Minggu & Libur: Tutup" : "Saturday, Sunday & Holidays: Closed"
+        language === "id" ? "Sabtu: Buka sampai jam 15:00" : "Saturday: Open until 15:00",
+        language === "id" ? "Minggu & Libur: Tutup" : "Sunday & Holidays: Closed"
       ],
     },
   ];
