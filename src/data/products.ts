@@ -49,8 +49,8 @@ export const products: Product[] = [
     shortDescriptionEn: "Translucent stone panel with backlit effect bringing natural warm ambiance.",
     material: "Lapisan Batu Alam + Resin Transparan",
     materialEn: "Natural Stone Layer + Transparent Resin",
-    features: ["Tembus Cahaya (Translucent)", "Tahan Sinar Matahari", "Ringan & Fleksibel", "Tahan Cuaca"],
-    featuresEn: ["Translucent", "UV Resistant", "Lightweight & Flexible", "Weather Resistant"],
+    features: ["Tembus Cahaya", "Tahan Sinar Matahari", "Tahan Cuaca"],
+    featuresEn: ["Translucent", "UV Resistant", "Weather Resistant"],
     category: "luminous-stone",
     specifications: { size: "1220 mm x 2440 mm", thickness: "2 mm - 3 mm", weight: "6 - 8 kg/sheet" }
   },
@@ -67,8 +67,8 @@ export const products: Product[] = [
     shortDescriptionEn: "Rustic grey stone texture for modern minimalist design.",
     material: "Lapisan Batu Alam + Resin Transparan",
     materialEn: "Natural Stone Layer + Transparent Resin",
-    features: ["Tahan Kelembapan", "Tahan Cuaca", "Tahan Noda", "Pola Alami"],
-    featuresEn: ["Moisture Resistant", "Weather Resistant", "Stain Resistant", "Natural Pattern"],
+    features: ["Tembus Cahaya", "Tahan Sinar Matahari", "Tahan Cuaca"],
+    featuresEn: ["Translucent", "UV Resistant", "Weather Resistant"],
     category: "luminous-stone",
     specifications: { size: "1220 mm x 2440 mm", thickness: "2 mm - 3 mm", weight: "6 - 8 kg/sheet" }
   },
@@ -85,8 +85,8 @@ export const products: Product[] = [
     shortDescriptionEn: "Canyon rock pattern with luxurious and dramatic bronze hues.",
     material: "Lapisan Batu Alam + Resin Transparan",
     materialEn: "Natural Stone Layer + Transparent Resin",
-    features: ["Tembus Cahaya (Translucent)", "Ringan & Fleksibel", "Mudah Dipasang", "Pola Alami"],
-    featuresEn: ["Translucent", "Lightweight & Flexible", "Easy to Install", "Natural Pattern"],
+    features: ["Tembus Cahaya", "Tahan Sinar Matahari", "Tahan Cuaca"],
+    featuresEn: ["Translucent", "UV Resistant", "Weather Resistant"],
     category: "luminous-stone",
     specifications: { size: "1220 mm x 2440 mm", thickness: "2 mm - 3 mm", weight: "6 - 8 kg/sheet" }
   },
@@ -103,8 +103,8 @@ export const products: Product[] = [
     shortDescriptionEn: "Elegant earth element visual with high durability for commercial areas.",
     material: "Lapisan Batu Alam + Resin Transparan",
     materialEn: "Natural Stone Layer + Transparent Resin",
-    features: ["Tahan Sinar Matahari", "Tahan Cuaca", "Tahan Noda", "Pola Alami"],
-    featuresEn: ["UV Resistant", "Weather Resistant", "Stain Resistant", "Natural Pattern"],
+    features: ["Tembus Cahaya", "Tahan Sinar Matahari", "Tahan Cuaca"],
+    featuresEn: ["Translucent", "UV Resistant", "Weather Resistant"],
     category: "luminous-stone",
     specifications: { size: "1220 mm x 2440 mm", thickness: "2 mm - 3 mm", weight: "6 - 8 kg/sheet" }
   },
@@ -121,8 +121,8 @@ export const products: Product[] = [
     shortDescriptionEn: "Classic vintage appearance for backdrop, ceiling, and countertop applications.",
     material: "Lapisan Batu Alam + Resin Transparan",
     materialEn: "Natural Stone Layer + Transparent Resin",
-    features: ["Ringan & Fleksibel", "Tahan Kelembapan", "Mudah Dipasang", "Tahan Noda"],
-    featuresEn: ["Lightweight & Flexible", "Moisture Resistant", "Easy to Install", "Stain Resistant"],
+    features: ["Tembus Cahaya", "Tahan Sinar Matahari", "Tahan Cuaca"],
+    featuresEn: ["Translucent", "UV Resistant", "Weather Resistant"],
     category: "luminous-stone",
     specifications: { size: "1220 mm x 2440 mm", thickness: "2 mm - 3 mm", weight: "6 - 8 kg/sheet" }
   }
