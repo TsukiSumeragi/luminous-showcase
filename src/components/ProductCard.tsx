@@ -9,6 +9,9 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, index }: ProductCardProps) => {
+  const { language } = useLanguage();
+  const features = language === "id" ? product.features : product.featuresEn;
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -44,7 +47,7 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
               {product.shortDescription}
             </p>
             <div className="mt-4 flex flex-wrap gap-1.5">
-              {product.features.map((feature) => (
+              {features.map((feature) => (
                 <span
                   key={feature}
                   className="px-2.5 py-1 bg-muted rounded-full text-xs"
