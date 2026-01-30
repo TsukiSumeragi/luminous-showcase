@@ -43,11 +43,11 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
             <p className="text-sm text-muted-foreground line-clamp-2">
               {product.shortDescription}
             </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {product.features.slice(0, 2).map((feature) => (
+            <div className="mt-4 flex flex-wrap gap-1.5">
+              {product.features.map((feature) => (
                 <span
                   key={feature}
-                  className="text-xs px-2 py-1 bg-muted rounded-full text-muted-foreground"
+                  className="px-2.5 py-1 bg-muted rounded-full text-xs"
                 >
                   {feature}
                 </span>
