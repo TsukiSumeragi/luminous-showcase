@@ -107,53 +107,110 @@ const ArticleDetailPage = () => {
 
             {/* Content */}
             <div className="prose prose-invert prose-lg max-w-none">
-              {content.split("\n").map((paragraph, index) => {
+              {(() => {
+                const lines = content.split("\n");
+                const elements: React.ReactNode[] = [];
+                let i = 0;
+                
                 // Remove ** markdown bold syntax
                 const cleanText = (text: string) => text.replace(/\*\*/g, "");
                 
-                if (paragraph.startsWith("## ")) {
-                  return (
-                    <h2
-                      key={index}
-                      className="font-display text-2xl font-medium mt-8 mb-4 text-foreground"
-                    >
-                      {cleanText(paragraph.replace("## ", ""))}
-                    </h2>
-                  );
+                while (i < lines.length) {
+                  const line = lines[i];
+                  
+                  // Check for table (starts with |)
+                  if (line.trim().startsWith("|")) {
+                    const tableLines: string[] = [];
+                    while (i < lines.length && lines[i].trim().startsWith("|")) {
+                      tableLines.push(lines[i]);
+                      i++;
+                    }
+                    
+                    // Parse table
+                    if (tableLines.length >= 2) {
+                      const headerRow = tableLines[0].split("|").filter(cell => cell.trim());
+                      const dataRows = tableLines.slice(2).map(row => 
+                        row.split("|").filter(cell => cell.trim())
+                      );
+                      
+                      elements.push(
+                        <div key={`table-${i}`} className="overflow-x-auto my-8">
+                          <table className="w-full border-collapse">
+                            <thead>
+                              <tr className="border-b border-border">
+                                {headerRow.map((cell, cellIdx) => (
+                                  <th 
+                                    key={cellIdx} 
+                                    className="text-left p-3 font-medium text-foreground bg-muted/50"
+                                  >
+                                    {cleanText(cell.trim())}
+                                  </th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {dataRows.map((row, rowIdx) => (
+                                <tr key={rowIdx} className="border-b border-border/50">
+                                  {row.map((cell, cellIdx) => (
+                                    <td 
+                                      key={cellIdx} 
+                                      className="p-3 text-muted-foreground"
+                                    >
+                                      {cleanText(cell.trim())}
+                                    </td>
+                                  ))}
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      );
+                    }
+                    continue;
+                  }
+                  
+                  if (line.startsWith("## ")) {
+                    elements.push(
+                      <h2
+                        key={i}
+                        className="font-display text-2xl font-medium mt-10 mb-5 text-foreground"
+                      >
+                        {cleanText(line.replace("## ", ""))}
+                      </h2>
+                    );
+                  } else if (line.startsWith("### ")) {
+                    elements.push(
+                      <h3
+                        key={i}
+                        className="font-display text-xl font-medium mt-8 mb-4 text-foreground"
+                      >
+                        {cleanText(line.replace("### ", ""))}
+                      </h3>
+                    );
+                  } else if (line.startsWith("- ")) {
+                    elements.push(
+                      <li key={i} className="text-muted-foreground ml-4">
+                        {cleanText(line.replace("- ", ""))}
+                      </li>
+                    );
+                  } else if (line.match(/^\d+\./)) {
+                    elements.push(
+                      <p key={i} className="text-muted-foreground mb-2 leading-relaxed">
+                        {cleanText(line)}
+                      </p>
+                    );
+                  } else if (line.trim()) {
+                    elements.push(
+                      <p key={i} className="text-muted-foreground mb-4 leading-relaxed">
+                        {cleanText(line)}
+                      </p>
+                    );
+                  }
+                  i++;
                 }
-                if (paragraph.startsWith("### ")) {
-                  return (
-                    <h3
-                      key={index}
-                      className="font-display text-xl font-medium mt-6 mb-3 text-foreground"
-                    >
-                      {cleanText(paragraph.replace("### ", ""))}
-                    </h3>
-                  );
-                }
-                if (paragraph.startsWith("- ")) {
-                  return (
-                    <li key={index} className="text-muted-foreground ml-4">
-                      {cleanText(paragraph.replace("- ", ""))}
-                    </li>
-                  );
-                }
-                if (paragraph.match(/^\d+\./)) {
-                  return (
-                    <p key={index} className="text-muted-foreground mb-2 leading-relaxed">
-                      {cleanText(paragraph)}
-                    </p>
-                  );
-                }
-                if (paragraph.trim()) {
-                  return (
-                    <p key={index} className="text-muted-foreground mb-4 leading-relaxed">
-                      {cleanText(paragraph)}
-                    </p>
-                  );
-                }
-                return null;
-              })}
+                
+                return elements;
+              })()}
             </div>
 
             {/* Back to Home */}
