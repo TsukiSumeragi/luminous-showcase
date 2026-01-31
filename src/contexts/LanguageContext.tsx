@@ -141,7 +141,7 @@ const translations: Record<Language, Translations> = {
       residentialDesc: "Ruang tamu, kamar mandi, dan area pribadi",
       commercialDesc: "Aplikasi panel batu luminous untuk hotel, restoran, dan ruang bisnis",
       residentialSubtitle: "Transformasi ruang pribadi Anda dengan keindahan batu luminous",
-      commercialSubtitle: "Tingkatkan kesan premium ruang bisnis dengan panel batu backlit",
+      commercialSubtitle: "Tingkatkan kesan premium ruang bisnis dengan panel batu luminous backlit",
     },
     contact: {
       title: "Hubungi Kami",
