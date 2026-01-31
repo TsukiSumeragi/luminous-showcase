@@ -4,6 +4,7 @@ import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import { getArticleBySlug, getRelatedArticles } from "@/data/articles";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const ArticleDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -200,8 +201,13 @@ const ArticleDetailPage = () => {
                       </p>
                     );
                   } else if (line.trim()) {
+                    // Check if line is a subheading like "Luminous Stone:" or "LED Panel" (bold text ending with colon)
+                    const isBoldSubheading = line.match(/^\*\*[^*]+:\*\*$/);
                     elements.push(
-                      <p key={i} className="text-muted-foreground mb-4 leading-relaxed">
+                      <p key={i} className={cn(
+                        "text-muted-foreground leading-relaxed",
+                        isBoldSubheading ? "mt-6 mb-2 font-medium text-foreground" : "mb-4"
+                      )}>
                         {cleanText(line)}
                       </p>
                     );
