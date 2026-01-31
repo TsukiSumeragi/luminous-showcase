@@ -27,8 +27,8 @@ export const galleryItems: GalleryItem[] = [
     image: livingRoom,
     title: "Ruang Tamu",
     titleEn: "Living Room",
-    description: "Aplikasi panel Luminous Stone pada dinding utama ruang tamu.",
-    descriptionEn: "Luminous Stone panel application on the main living room wall.",
+    description: "Aplikasi panel batu luminous pada dinding utama ruang tamu.",
+    descriptionEn: "Luminous stone panel application on the main living room wall.",
     category: "residential",
   },
   {
@@ -72,8 +72,8 @@ export const galleryItems: GalleryItem[] = [
     image: balkonExterior,
     title: "Balkon Eksterior",
     titleEn: "Exterior Balcony",
-    description: "Panel dinding eksterior balkon dengan efek backlit yang memukau di malam hari.",
-    descriptionEn: "Exterior balcony wall panel with stunning backlit effect at night.",
+    description: "Panel batu luminous eksterior balkon dengan efek backlit yang memukau di malam hari.",
+    descriptionEn: "Exterior balcony luminous stone panel with stunning backlit effect at night.",
     category: "residential",
   },
   // Commercial
