@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Lightbulb, LightbulbOff } from "lucide-react";
 import { products } from "@/data/products";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { cn } from "@/lib/utils";
@@ -123,15 +123,31 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Toggle Status Indicator */}
+        {/* Toggle Status Indicator with Lightbulb Icons */}
         <div className="flex justify-center items-center gap-4 mt-6">
-          <span className={cn("text-[10px] uppercase tracking-widest transition-colors", !isOn ? "text-primary font-bold" : "text-muted-foreground")}>
-            {t.hero.off}
-          </span>
+          <button 
+            onClick={() => setIsOn(false)}
+            className={cn(
+              "flex items-center gap-2 px-4 py-2 rounded-full transition-all",
+              !isOn ? "bg-primary/20 text-primary" : "bg-muted/50 text-muted-foreground hover:bg-muted"
+            )}
+          >
+            <LightbulbOff className="w-4 h-4" />
+            <span className="text-xs uppercase tracking-widest font-medium">{t.hero.off}</span>
+          </button>
+          
           <div className={cn("w-12 h-1 rounded-full transition-colors", isOn ? "bg-primary" : "bg-muted")} />
-          <span className={cn("text-[10px] uppercase tracking-widest transition-colors", isOn ? "text-primary font-bold" : "text-muted-foreground")}>
-            {t.hero.on}
-          </span>
+          
+          <button 
+            onClick={() => setIsOn(true)}
+            className={cn(
+              "flex items-center gap-2 px-4 py-2 rounded-full transition-all",
+              isOn ? "bg-primary/20 text-primary" : "bg-muted/50 text-muted-foreground hover:bg-muted"
+            )}
+          >
+            <Lightbulb className="w-4 h-4" />
+            <span className="text-xs uppercase tracking-widest font-medium">{t.hero.on}</span>
+          </button>
         </div>
       </div>
     </section>
