@@ -82,8 +82,8 @@ export const galleryItems: GalleryItem[] = [
     image: lobbyHotel,
     title: "Lobi Hotel",
     titleEn: "Hotel Lobby",
-    description: "Meja resepsionis hotel dengan panel onyx backlit yang mewah.",
-    descriptionEn: "Hotel reception desk with luxurious backlit onyx panels.",
+    description: "Meja resepsionis hotel dengan panel batu luminous backlit yang mewah.",
+    descriptionEn: "Hotel reception desk with luxurious backlit luminous stone panels.",
     category: "commercial",
   },
   {

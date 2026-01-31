@@ -29,8 +29,8 @@ const ContactPage = () => {
       icon: Clock,
       title: t.contact.workingHours,
       content: [
-        language === "id" ? "Senin - Jumat: 08:30 - 16:30" : "Monday - Friday: 08:30 - 16:30",
-        language === "id" ? "Sabtu: 08:30 - 15:00" : "Saturday: 08:30 - 15:00",
+        language === "id" ? "Senin - Jumat: 07:30 - 16:30" : "Monday - Friday: 07:30 - 16:30",
+        language === "id" ? "Sabtu: 07:30 - 15:00" : "Saturday: 07:30 - 15:00",
         language === "id" ? "Minggu & Libur: Tutup" : "Sunday & Holidays: Closed"
       ],
     },
